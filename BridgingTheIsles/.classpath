@@ -4,5 +4,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="/Users/riya/Documents/GitHub/physicsshapedemo-RiyaGupta1234/PhysicsShapeDemo/lib/processing_core.jar"/>
 	<classpathentry kind="lib" path="/Users/riya/Desktop/AnimationDemoProcessing/lib/core-windows-32.jar"/>
+	<classpathentry kind="lib" path="lib/processing_core.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
