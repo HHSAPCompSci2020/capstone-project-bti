@@ -32,8 +32,7 @@ public class Main extends JFrame{
 	}
 
 	public static void main(String[] args) {
-<<<<<<< Updated upstream
-=======
+
 
 		Main w = new Main("Bridging the Isles");
 
@@ -43,7 +42,6 @@ public class Main extends JFrame{
 		((CardLayout)cardPanel.getLayout()).next(cardPanel);
 		panel2.requestFocus();
 
->>>>>>> Stashed changes
 		System.out.println("Hello World");
 	}
 
