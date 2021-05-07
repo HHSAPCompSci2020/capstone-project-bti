@@ -1,6 +1,7 @@
+package game;
 import processing.core.PImage;
 
-/** Represents a straight, flat bridge. Vertically “built” by player when the space button is pressed and 
+/** Represents a straight, flat bridge. Vertically ï¿½builtï¿½ by player when the space button is pressed and 
  * horizontally falls to connect the Person to the adjacent Isle
  * 
  * @author Kasturi Sinha

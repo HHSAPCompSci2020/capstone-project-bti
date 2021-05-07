@@ -1,3 +1,4 @@
+package game;
 import processing.core.PImage;
 
 /** Represents an isle in the game. Allows for new isle form when bridge has been made to previous isle.
