@@ -50,7 +50,6 @@ public class Main extends JFrame{
 		((CardLayout)cardPanel.getLayout()).next(cardPanel);
 		panel2.requestFocus();
 
-		System.out.println("Hello World");
 	}
 
 }
