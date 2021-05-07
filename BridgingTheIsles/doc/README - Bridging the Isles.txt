@@ -139,12 +139,3 @@ Give credit to all outside resources used. This includes downloaded images or so
    * Helped with brainstorming
 
 
-
-
-[a]Here you say that you die and lose a life, but in the instructions, you just die and restart
-[b]instructions in step 12
-[c]This instruction matches our want-to-have feature that gives players lives
-[d]When building a bridge, is it just a one chance kind of thing? Or does the building bridge elongate and then when it reaches a "max" it goes back down and when it goes to zero then it elongates again? I feel like doing this will make the game easier because you can time it a little better than it just builds and if you go over then you die.
-[e]We're planning on having the bridge elongate forever, even if it goes out of frame.
-[f]I really like these challenges! The game seems pretty basic and I feel like after a couple of runs, it would be kind of repetitive. However, if you guys get a chance to do some of these other subclasses, it would be really fun!
-[g]Thank you!
