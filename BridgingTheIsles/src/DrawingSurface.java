@@ -1,9 +1,17 @@
-
 import java.awt.Rectangle;
 import java.awt.Shape;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import processing.core.PApplet;
+
+/** Displays the instructions at the start of the game and any other button necessary during the game. 
+ * Sets the background at the start of the game.
+ * 
+ * @author Kasturi Sinha
+ * @author Samantha Sung
+ * @author Riya Gupta
+ * @version 1
+*/
 
 public class DrawingSurface extends PApplet{
 	

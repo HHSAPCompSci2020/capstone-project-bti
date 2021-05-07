@@ -2,6 +2,13 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 
+/** Window that displays the game and contains the initial drop-down menu to choose the level 
+ * 
+ * @author Kasturi Sinha
+ * @author Samantha Sung
+ * @author Riya Gupta
+ * @version 1
+*/
 public class MenuPanel extends JPanel implements ActionListener{
 
 	Main w;

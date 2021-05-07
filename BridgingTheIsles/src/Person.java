@@ -1,10 +1,15 @@
-
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
 import java.util.*;
-
 import processing.core.PImage;
 
+/** Represents Person as he/she walks across OriginalBridge and Isle
+ * 
+ * @author Kasturi Sinha
+ * @author Samantha Sung
+ * @author Riya Gupta
+ * @version 1
+*/
 public class Person extends MovingImage {
 
 	public static final int PERSON_WIDTH = 40;

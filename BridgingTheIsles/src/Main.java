@@ -1,6 +1,13 @@
 import javax.swing.*;
 import java.awt.*;
 
+/** Contains the main method, creates GameWindow
+ * 
+ * @author Kasturi Sinha
+ * @author Samantha Sung
+ * @author Riya Gupta
+ * @version 1
+*/
 public class Main extends JFrame{
 	
 	private JPanel cardPanel;

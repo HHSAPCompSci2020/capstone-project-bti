@@ -1,3 +1,10 @@
+/** Determines the lives that the Person has left and is updated when the bridge fails
+ * 
+ * @author Kasturi Sinha
+ * @author Samantha Sung
+ * @author Riya Gupta
+ * @version 1
+*/
 
 public class LifeCounter {
 
