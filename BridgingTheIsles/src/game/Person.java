@@ -42,8 +42,8 @@ public class Person{
 			xVelocity += dir;
 	}
 	
-	public void shift(int x) {
-		this.x += x;
+	public void shift() {
+		x = 20; 
 	}
 	
 	public void loseLife(int dir) {

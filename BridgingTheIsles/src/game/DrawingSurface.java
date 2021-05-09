@@ -43,8 +43,8 @@ public class DrawingSurface extends PApplet{
 	}
 	
 	public void draw() {
-		
-		background(0,255,255);
+		background(255,255,255);
+		person.draw(this);
 		
 		
 	

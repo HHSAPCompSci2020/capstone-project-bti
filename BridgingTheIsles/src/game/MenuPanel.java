@@ -28,7 +28,7 @@ public class MenuPanel extends JPanel implements ActionListener{
 	}
 	
 	public void actionPerformed(ActionEvent e) {
-		w.changePanel();
+	//	w.changePanel();
 		
 	}
 	

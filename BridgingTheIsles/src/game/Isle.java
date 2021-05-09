@@ -9,14 +9,14 @@ import processing.core.PImage;
  * @version 1
 */
 
-public class Isle extends MovingImage{
+public class Isle{
 
 	double startX;
 	double width;
 	
-	public Isle(PImage img, int x, int y, int w, int h) {
-		super(img, x, y, w, h);
-		// TODO Auto-generated constructor stub
+	public Isle() {
+		width = Math.random() * 50; 
+		startX = Math.random() * 50 + 50; 
 	}
 	
 	public void detectBridge() {
@@ -25,6 +25,18 @@ public class Isle extends MovingImage{
 	
 	public void draw() {
 		
+	}
+	
+	public void shift() {
+		startX = 40; 
+	}
+	
+	public double getStartX() {
+		return startX;
+	}
+	
+	public double getWidth() {
+		return width; 
 	}
 	
 }
