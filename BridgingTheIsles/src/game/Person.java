@@ -15,40 +15,41 @@ import processing.core.PImage;
 */
 public class Person{
 
-	private float x;
-	private float y;
+	private double x;
+	private double y;
 
-	private double xVelocity;
-	private double yVelocity;
+//	private double xVelocity;
+//	private double yVelocity;
 	
 	public Person(int x, int y) {
 		this.x = x;
 		this.y = y;
-		xVelocity = 0;
 	}
 	
 	public void draw(PApplet surface) {
-		surface.circle(x, y, 40);
-		surface.line(x, y+20, x, y+50); 
-		surface.line(x-15, y+35, x+15, y+35); 
-		surface.line(x, y+50, x-15, y+65); 
-		surface.line(x, y+50, x+15, y+65); 
+		surface.circle((float)x, (float)y, 40);
+		surface.line((float)x, (float)y+20, (float)x, (float)y+50); 
+		surface.line((float)x-15, (float)y+35, (float)x+15, (float)y+35); 
+		surface.line((float)x, (float)y+50, (float)x-15, (float)y+65); 
+		surface.line((float)x, (float)y+50,(float)x+15, (float)y+65); 
 	}
 	
 
 	
-	public void walk(int dir) {
-		if (xVelocity <= 10 && xVelocity >= -10)
-			xVelocity += dir;
+	public void walk(double endSpot) {
+		while (x < x+endSpot) {
+			x+=10;
+		}	
 	}
 	
-	public void shift() {
-		x = 20; 
+	public void shift(double spotOnIsle) {
+		x = 40+spotOnIsle; 
 	}
 	
 	public void loseLife(int dir) {
-		if (yVelocity <= 10 && yVelocity >= -10)
-			yVelocity += dir;
+		while (y > 0) {
+			y-=10;
+		}
 	}
 	
 	public void act() {

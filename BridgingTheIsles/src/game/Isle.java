@@ -1,5 +1,5 @@
 package game;
-import processing.core.PImage;
+import processing.core.PApplet;
 
 /** Represents an isle in the game. Allows for new isle form when bridge has been made to previous isle.
  * 
@@ -15,16 +15,24 @@ public class Isle{
 	double width;
 	
 	public Isle() {
-		width = Math.random() * 50; 
-		startX = Math.random() * 50 + 50; 
+		width = Math.random() * 200; 
+		startX = Math.random() * 400 + 40; 
 	}
 	
-	public void detectBridge() {
-		
+	public int detectBridge(int x) {
+		double middle = startX+width/2;
+		if (x >= middle-width/6 && x <= middle+width/6) 
+			return 3;
+		else if (x >= middle-width/3 && x <= middle+width/3) 
+			return 2;
+		else if (x >= startX && x >= startX+width) 
+			return 1;
+		else
+			return 0;
 	}
 	
-	public void draw() {
-		
+	public void draw(PApplet surface) {
+		surface.rect((float)startX, 200, (float)width, 200);
 	}
 	
 	public void shift() {

@@ -30,13 +30,15 @@ public class DrawingSurface extends PApplet{
 	
 	public DrawingSurface() {
 		super();
+		person = new Person(60, 50);
+		bridge = new OriginalBridge(60);
+		isle = new Isle();
 		screenRect = new Rectangle(0,0,DRAWING_WIDTH,DRAWING_HEIGHT);
-		spawnNewPerson();
 	}
 
-	public void spawnNewPerson() {
-		person = new Person(20, 20);
-	}
+//	public void spawnNewPerson() {
+//		person = new Person(20, 20);
+//	}
 	
 	public void setup() {
 		//size(0,0,PApplet.P3D);
@@ -45,6 +47,8 @@ public class DrawingSurface extends PApplet{
 	public void draw() {
 		background(255,255,255);
 		person.draw(this);
+		bridge.draw(this);
+		isle.draw(this);
 		
 		
 	

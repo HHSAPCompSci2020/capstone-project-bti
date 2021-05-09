@@ -1,5 +1,6 @@
 package game;
-import processing.core.PImage;
+
+import processing.core.PApplet;
 
 /** Represents a straight, flat bridge. Vertically �built� by player when the space button is pressed and 
  * horizontally falls to connect the Person to the adjacent Isle
@@ -9,29 +10,38 @@ import processing.core.PImage;
  * @author Riya Gupta
  * @version 1
 */
-public class OriginalBridge extends MovingImage{
+public class OriginalBridge{
 
+	private double startX;
 	private double length;
+	private double angle;
 	
-	public OriginalBridge(PImage img, int x, int y, int w, int h) {
-		super(img, x, y, w, h);
+	public OriginalBridge() {
+		startX = 40;
 		length = 0;
+		angle = Math.PI/2;
+	}
+	public OriginalBridge(double start) {
+		startX = start;
+		length = 0;
+		angle = Math.PI/2;
 	}
 	
 	public double getEndCoordinate() {
-		return 20+length;
+		return startX+length;
 	}
 	
 	public void build() {
 		length++;
 	}
 	
-	public void draw() {
-		
+	public void draw(PApplet surface) {
+		surface.line((float)startX, 50, (float)(startX+length*Math.cos(angle)), (float)(50+length*Math.sin(angle)));
 	}
 	
 	public void fall() {
-		
+		while(angle >= 0)
+		angle-=0.01;
 	}
 	
 }
