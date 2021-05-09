@@ -16,6 +16,12 @@ public class MenuPanel extends JPanel implements ActionListener{
 
 	public MenuPanel(Main w) {
 		this.w = w;
+		JTextArea instructions = new JTextArea("Instructions:"
+				+ "\n1. You are on a deserted isle"
+				+ "\n2. Press on the space button for a bridge to continue to get built. It gets longer in the vertical direction."
+				+ "\n3. Stop pressing the ‘space button’ once you think the bridge is the correct length to connect the two islands"
+				+ "\n4. The bridge falls, and the end point determines if you succeed");
+		add(instructions);
 		JButton button = new JButton("Easy");
 		button.addActionListener(this);
 		add(button);

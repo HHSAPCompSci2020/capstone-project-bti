@@ -2,6 +2,8 @@ package game;
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
 import java.util.*;
+
+import processing.core.PApplet;
 import processing.core.PImage;
 
 /** Represents Person as he/she walks across OriginalBridge and Isle
@@ -11,31 +13,48 @@ import processing.core.PImage;
  * @author Riya Gupta
  * @version 1
 */
-public class Person extends MovingImage {
+public class Person{
 
-	public static final int PERSON_WIDTH = 40;
-	public static final int PERSON_HEIGHT = 60;
+	private float x;
+	private float y;
 
 	private double xVelocity;
+	private double yVelocity;
 	
-	public Person(PImage img, int x, int y) {
-		super(img, x, y, PERSON_WIDTH, PERSON_HEIGHT);
+	public Person(int x, int y) {
+		this.x = x;
+		this.y = y;
 		xVelocity = 0;
 	}
 	
-	//METHODS
+	public void draw(PApplet surface) {
+		surface.circle(x, y, 40);
+		surface.line(x, y+20, x, y+50); 
+		surface.line(x-15, y+35, x+15, y+35); 
+		surface.line(x, y+50, x-15, y+65); 
+		surface.line(x, y+50, x+15, y+65); 
+	}
+	
+
+	
 	public void walk(int dir) {
 		if (xVelocity <= 10 && xVelocity >= -10)
 			xVelocity += dir;
 	}
 	
-	public void loseLife() {
-		
+	public void shift(int x) {
+		this.x += x;
+	}
+	
+	public void loseLife(int dir) {
+		if (yVelocity <= 10 && yVelocity >= -10)
+			yVelocity += dir;
 	}
 	
 	public void act() {
 
 	}
+	
 	
 	
 	

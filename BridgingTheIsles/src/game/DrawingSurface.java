@@ -27,17 +27,15 @@ public class DrawingSurface extends PApplet{
 	private LifeCounter lives;
 	private PointSystem points;
 	
-	private ArrayList<Integer> keys;
 	
 	public DrawingSurface() {
 		super();
-		keys = new ArrayList<Integer>();
 		screenRect = new Rectangle(0,0,DRAWING_WIDTH,DRAWING_HEIGHT);
 		spawnNewPerson();
 	}
 
 	public void spawnNewPerson() {
-		person = new Person(loadImage("mario.png"), DRAWING_WIDTH/2-Person.PERSON_WIDTH/2,50);
+		person = new Person(20, 20);
 	}
 	
 	public void setup() {
@@ -49,21 +47,26 @@ public class DrawingSurface extends PApplet{
 		background(0,255,255);
 		
 		
-		
+	
 	}
 	
-	public void keyPressed() {
-		keys.add(keyCode);
+	public void keyPressed() {	
+		if (key == CODED) {
+			if (key == ' ') 
+			bridge.build();
 	}
+//	public void keyPressed() {
+//		keys.add(keyCode);
+//	}
+//
+//	public void keyReleased() {
+//		while(keys.contains(keyCode))
+//			keys.remove(new Integer(keyCode));
+//	}
+//
+//	public boolean isPressed(Integer code) {
+//		return keys.contains(code);
+//	}
 
-	public void keyReleased() {
-		while(keys.contains(keyCode))
-			keys.remove(new Integer(keyCode));
 	}
-
-	public boolean isPressed(Integer code) {
-		return keys.contains(code);
-	}
-
-
 }
