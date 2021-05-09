@@ -11,19 +11,19 @@ import processing.core.PImage;
 */
 public class OriginalBridge extends MovingImage{
 
-	double length;
+	private double length;
 	
 	public OriginalBridge(PImage img, int x, int y, int w, int h) {
 		super(img, x, y, w, h);
-		// TODO Auto-generated constructor stub
+		length = 0;
 	}
 	
-	public int getEndCoordinate() {
-		return 0;
+	public double getEndCoordinate() {
+		return 20+length;
 	}
 	
 	public void build() {
-		
+		length++;
 	}
 	
 	public void draw() {

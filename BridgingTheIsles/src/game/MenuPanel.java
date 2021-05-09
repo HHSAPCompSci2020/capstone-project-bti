@@ -16,7 +16,7 @@ public class MenuPanel extends JPanel implements ActionListener{
 
 	public MenuPanel(Main w) {
 		this.w = w;
-		JButton button = new JButton("level 1");
+		JButton button = new JButton("Easy");
 		button.addActionListener(this);
 		add(button);
 	}
