@@ -15,13 +15,16 @@ public class Isle{
 	double width;
 	
 	public Isle() {
-		width = Math.random() * 200; 
+		width = Math.random() * 200+20; 
 		startX = Math.random() * 400 + 40; 
 	}
 	
-	public Isle(double start) {
+	public Isle(boolean start, double bounds) {
 		width = Math.random() * 200 + 20; 
-		startX = start;
+		if (start)
+			startX = bounds;
+		else
+			startX = bounds+Math.random()*200+40;
 	}
 	
 	public int detectBridge(int x) {
@@ -37,6 +40,8 @@ public class Isle{
 	}
 	
 	public void draw(PApplet surface) {
+		surface.strokeWeight(1);
+		surface.fill(204, 255, 204);
 		surface.rect((float)startX, 300, (float)width, 150);
 	}
 	

@@ -27,18 +27,20 @@ public class Person{
 	}
 	
 	public void draw(PApplet surface) {
-		surface.circle((float)x, (float)y-55, 20);
-		surface.line((float)x, (float)y-45, (float)x, (float)y-15); 
-		surface.line((float)x-10, (float)y-30, (float)x+10, (float)y-30); 
-		surface.line((float)x, (float)y-15, (float)x-10, (float)y); 
-		surface.line((float)x, (float)y-15,(float)x+10, (float)y); 
+		surface.fill(255, 102, 102);
+		surface.strokeWeight(1);
+		surface.circle((float)x-10, (float)y-55, 20);
+		surface.line((float)x-10, (float)y-45, (float)x-10, (float)y-15); 
+		surface.line((float)x-20, (float)y-30, (float)x, (float)y-30); 
+		surface.line((float)x-10, (float)y-15, (float)x-20, (float)y); 
+		surface.line((float)x-10, (float)y-15,(float)x, (float)y); 
 	}
 	
 
 	
 	public void walk(double endSpot) {
-		while (x < x+endSpot) {
-			x+=10;
+		while (x < endSpot) {
+			x+=0.00001;
 		}	
 	}
 	
@@ -51,12 +53,5 @@ public class Person{
 			y-=10;
 		}
 	}
-	
-	public void act() {
 
-	}
-	
-	
-	
-	
 }

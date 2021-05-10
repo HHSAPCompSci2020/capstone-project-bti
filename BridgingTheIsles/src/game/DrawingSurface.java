@@ -31,9 +31,9 @@ public class DrawingSurface extends PApplet{
 	
 	public DrawingSurface() {
 		person = new Person(60, 300);
-		isle = new Isle(40);
+		isle = new Isle(true, 40);
 		bridge = new OriginalBridge(isle.getStartX()+isle.getWidth());
-		isle2 = new Isle();
+		isle2 = new Isle(false, isle.getStartX()+isle.getWidth());
 		screenRect = new Rectangle(0,0,DRAWING_WIDTH,DRAWING_HEIGHT);
 	}
 
@@ -57,6 +57,7 @@ public class DrawingSurface extends PApplet{
 	
 	public void keyReleased() {
 		bridge.fall();
+		person.walk(bridge.getEndCoordinate());
 	}
 
 }
