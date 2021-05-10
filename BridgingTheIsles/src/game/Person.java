@@ -27,11 +27,11 @@ public class Person{
 	}
 	
 	public void draw(PApplet surface) {
-		surface.circle((float)x, (float)y, 40);
-		surface.line((float)x, (float)y+20, (float)x, (float)y+50); 
-		surface.line((float)x-15, (float)y+35, (float)x+15, (float)y+35); 
-		surface.line((float)x, (float)y+50, (float)x-15, (float)y+65); 
-		surface.line((float)x, (float)y+50,(float)x+15, (float)y+65); 
+		surface.circle((float)x, (float)y-55, 20);
+		surface.line((float)x, (float)y-45, (float)x, (float)y-15); 
+		surface.line((float)x-10, (float)y-30, (float)x+10, (float)y-30); 
+		surface.line((float)x, (float)y-15, (float)x-10, (float)y); 
+		surface.line((float)x, (float)y-15,(float)x+10, (float)y); 
 	}
 	
 

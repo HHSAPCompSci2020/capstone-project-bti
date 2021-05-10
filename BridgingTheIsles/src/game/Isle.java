@@ -19,6 +19,11 @@ public class Isle{
 		startX = Math.random() * 400 + 40; 
 	}
 	
+	public Isle(double start) {
+		width = Math.random() * 200 + 20; 
+		startX = start;
+	}
+	
 	public int detectBridge(int x) {
 		double middle = startX+width/2;
 		if (x >= middle-width/6 && x <= middle+width/6) 
@@ -32,7 +37,7 @@ public class Isle{
 	}
 	
 	public void draw(PApplet surface) {
-		surface.rect((float)startX, 200, (float)width, 200);
+		surface.rect((float)startX, 300, (float)width, 150);
 	}
 	
 	public void shift() {

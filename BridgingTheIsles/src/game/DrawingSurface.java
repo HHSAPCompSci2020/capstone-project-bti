@@ -24,21 +24,19 @@ public class DrawingSurface extends PApplet{
 	private Person person;
 	private OriginalBridge bridge;
 	private Isle isle;
+	private Isle isle2;
 	private LifeCounter lives;
 	private PointSystem points;
 	
 	
 	public DrawingSurface() {
-		super();
-		person = new Person(60, 50);
-		bridge = new OriginalBridge(60);
-		isle = new Isle();
+		person = new Person(60, 300);
+		isle = new Isle(40);
+		bridge = new OriginalBridge(isle.getStartX()+isle.getWidth());
+		isle2 = new Isle();
 		screenRect = new Rectangle(0,0,DRAWING_WIDTH,DRAWING_HEIGHT);
 	}
 
-//	public void spawnNewPerson() {
-//		person = new Person(20, 20);
-//	}
 	
 	public void setup() {
 		//size(0,0,PApplet.P3D);
@@ -47,30 +45,18 @@ public class DrawingSurface extends PApplet{
 	public void draw() {
 		background(255,255,255);
 		person.draw(this);
-		bridge.draw(this);
 		isle.draw(this);
-		
-		
-	
+		bridge.draw(this);
+		isle2.draw(this);
 	}
 	
 	public void keyPressed() {	
-		if (key == CODED) {
-			if (key == ' ') 
-			bridge.build();
+		if (keyCode == ' ')
+			bridge.build(5);
 	}
-//	public void keyPressed() {
-//		keys.add(keyCode);
-//	}
-//
-//	public void keyReleased() {
-//		while(keys.contains(keyCode))
-//			keys.remove(new Integer(keyCode));
-//	}
-//
-//	public boolean isPressed(Integer code) {
-//		return keys.contains(code);
-//	}
+	
+	public void keyReleased() {
+		bridge.fall();
+	}
 
-	}
 }
