@@ -27,13 +27,17 @@ public class DrawingSurface extends PApplet{
 	private Isle isle2;
 	private LifeCounter lives;
 	private PointSystem points;
+	private Isle[] isles;
 	
 	
 	public DrawingSurface() {
 		person = new Person(60, 300);
-		isle = new Isle(true, 40);
-		bridge = new OriginalBridge(isle.getStartX()+isle.getWidth());
-		isle2 = new Isle(false, isle.getStartX()+isle.getWidth());
+		isles = new Isle[2];
+		isles[0] = new Isle(true, 40);
+		bridge = new OriginalBridge(isles[0].getStartX()+isles[0].getWidth());
+		isles[1] = new Isle(false, isles[0].getStartX()+isles[0].getWidth());
+		points = new PointSystem();
+		lives = new LifeCounter();
 		screenRect = new Rectangle(0,0,DRAWING_WIDTH,DRAWING_HEIGHT);
 	}
 
@@ -45,9 +49,30 @@ public class DrawingSurface extends PApplet{
 	public void draw() {
 		background(255,255,255);
 		person.draw(this);
-		isle.draw(this);
 		bridge.draw(this);
-		isle2.draw(this);
+		isles[0].draw(this);
+		isles[1].draw(this);
+	}
+	
+	public void determineCourse() {
+		points.incrementPoints(isles[1].detectBridge(bridge.getEndCoordinate()));
+		if (isles[1].detectBridge(bridge.getEndCoordinate()) == 0) {
+			person.loseLife();
+			lives.removeLife();
+		}
+		else {
+			newLevel();
+		}
+	}
+	
+	public void newLevel() {
+		if (points.getPoints() % 20 == 0) 
+			lives.addLife();
+		person.shift(bridge.getEndCoordinate()-isles[1].getStartX());
+		isles[0] = isles[1];
+		isles[0].shift();
+		isles[1] = new Isle(false, isles[0].getStartX()+isles[0].getWidth());
+		bridge = new OriginalBridge(isles[0].getStartX()+isles[0].getWidth());
 	}
 	
 	public void keyPressed() {	
@@ -58,6 +83,7 @@ public class DrawingSurface extends PApplet{
 	public void keyReleased() {
 		bridge.fall();
 		person.walk(bridge.getEndCoordinate());
+		determineCourse();
 	}
 
 }

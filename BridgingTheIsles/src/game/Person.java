@@ -45,12 +45,12 @@ public class Person{
 	}
 	
 	public void shift(double spotOnIsle) {
-		x = 40+spotOnIsle; 
+		x = 60+spotOnIsle;
 	}
 	
-	public void loseLife(int dir) {
+	public void loseLife() {
 		while (y > 0) {
-			y-=10;
+			y-=0.00001;
 		}
 	}
 

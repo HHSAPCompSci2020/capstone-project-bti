@@ -33,6 +33,10 @@ public class OriginalBridge{
 		surface.line((float)startX, 300, (float)(startX+Math.cos(angle)*length), (float)(300-Math.sin(angle)*length));
 	}
 	
+	public double getStartX() {
+		return startX;
+	}
+	
 	public double getEndCoordinate() {
 		return startX+length;
 	}
@@ -44,6 +48,10 @@ public class OriginalBridge{
 	public void fall() {
 		while(angle >= 0)
 		angle-=0.01;
+	}
+	
+	public void disappear() {
+		length = 0;
 	}
 	
 }

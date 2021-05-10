@@ -27,13 +27,13 @@ public class Isle{
 			startX = bounds+Math.random()*200+40;
 	}
 	
-	public int detectBridge(int x) {
+	public int detectBridge(double x) {
 		double middle = startX+width/2;
 		if (x >= middle-width/6 && x <= middle+width/6) 
 			return 3;
 		else if (x >= middle-width/3 && x <= middle+width/3) 
 			return 2;
-		else if (x >= startX && x >= startX+width) 
+		else if (x >= startX && x <= startX+width) 
 			return 1;
 		else
 			return 0;
@@ -55,6 +55,10 @@ public class Isle{
 	
 	public double getWidth() {
 		return width; 
+	}
+	
+	public void disappear() {
+		width = 0;
 	}
 	
 }

@@ -20,8 +20,11 @@ public class PointSystem {
 	 * @param n Number of points earned
 	 * @return New total points
 	 */
-	public int incrementPoints(int n) {
+	public void incrementPoints(int n) {
 		points += n;
+	}
+	
+	public int getPoints() {
 		return points;
 	}
 }
