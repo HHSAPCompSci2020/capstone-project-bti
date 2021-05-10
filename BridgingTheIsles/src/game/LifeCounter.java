@@ -2,12 +2,12 @@ package game;
 /** Determines the lives that the Person has left and is updated when the bridge fails
  * 
  * @author Samantha Sung
- * @version 1
+ * @version 5/10
 */
 
 public class LifeCounter {
 
-	private int lifeCount;
+	protected int lifeCount;
 	
 	/**
 	 * Initalize life count to 2 lives

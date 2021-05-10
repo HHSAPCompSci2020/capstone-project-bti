@@ -2,11 +2,11 @@ package game;
 /** Determines the points that the player has earned and increments according to the targets on the isle
  * 
  * @author Samantha Sung
- * @version 1
+ * @version 5/10
 */
 public class PointSystem {
 
-	private int points;
+	protected int points;
 	
 	/**
 	 * Initializes points to 0
@@ -22,9 +22,5 @@ public class PointSystem {
 	 */
 	public void incrementPoints(int n) {
 		points += n;
-	}
-	
-	public int getPoints() {
-		return points;
 	}
 }

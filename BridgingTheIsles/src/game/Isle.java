@@ -6,13 +6,13 @@ import processing.core.PApplet;
  * @author Kasturi Sinha
  * @author Samantha Sung
  * @author Riya Gupta
- * @version 1
+ * @version 5/10
 */
 
 public class Isle{
 
-	double startX;
-	double width;
+	protected double startX;
+	protected double width;
 	
 	public Isle() {
 		width = Math.random() * 200+20; 
@@ -48,17 +48,4 @@ public class Isle{
 	public void shift() {
 		startX = 40; 
 	}
-	
-	public double getStartX() {
-		return startX;
-	}
-	
-	public double getWidth() {
-		return width; 
-	}
-	
-	public void disappear() {
-		width = 0;
-	}
-	
 }

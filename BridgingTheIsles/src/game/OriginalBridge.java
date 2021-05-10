@@ -1,5 +1,4 @@
 package game;
-
 import processing.core.PApplet;
 
 /** Represents a straight, flat bridge. Vertically built by player when the space button is pressed and 
@@ -8,13 +7,13 @@ import processing.core.PApplet;
  * @author Kasturi Sinha
  * @author Samantha Sung
  * @author Riya Gupta
- * @version 1
+ * @version 5/10
 */
 public class OriginalBridge{
 
-	private double startX;
-	private double length;
-	private double angle;
+	protected double startX;
+	protected double length;
+	protected double angle;
 	
 	public OriginalBridge() {
 		startX = 40;
@@ -33,10 +32,6 @@ public class OriginalBridge{
 		surface.line((float)startX, 300, (float)(startX+Math.cos(angle)*length), (float)(300-Math.sin(angle)*length));
 	}
 	
-	public double getStartX() {
-		return startX;
-	}
-	
 	public double getEndCoordinate() {
 		return startX+length;
 	}
@@ -49,9 +44,4 @@ public class OriginalBridge{
 		while(angle >= 0)
 		angle-=0.01;
 	}
-	
-	public void disappear() {
-		length = 0;
-	}
-	
 }

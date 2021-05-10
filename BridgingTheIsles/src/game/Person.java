@@ -1,22 +1,17 @@
 package game;
-import java.awt.*;
-import java.awt.geom.Rectangle2D;
-import java.util.*;
-
 import processing.core.PApplet;
-import processing.core.PImage;
 
 /** Represents Person as he/she walks across OriginalBridge and Isle
  * 
  * @author Kasturi Sinha
  * @author Samantha Sung
  * @author Riya Gupta
- * @version 1
+ * @version 5/10
 */
 public class Person{
 
-	private double x;
-	private double y;
+	protected double x;
+	protected double y;
 
 //	private double xVelocity;
 //	private double yVelocity;
@@ -35,8 +30,6 @@ public class Person{
 		surface.line((float)x-10, (float)y-15, (float)x-20, (float)y); 
 		surface.line((float)x-10, (float)y-15,(float)x, (float)y); 
 	}
-	
-
 	
 	public void walk(double endSpot) {
 		while (x < endSpot) {
