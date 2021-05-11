@@ -9,7 +9,7 @@ import processing.core.PApplet;
  * @author Riya Gupta
  * @version 5/10
 */
-public class Person{
+public class Person {
 
 	protected double x;
 	protected double y;

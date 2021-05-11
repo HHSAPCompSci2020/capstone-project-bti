@@ -1,4 +1,7 @@
 package game;
+import java.awt.Point;
+import java.util.ArrayList;
+
 import processing.core.PApplet;
 
 /** 
@@ -11,27 +14,34 @@ import processing.core.PApplet;
  * @version 5/10
 */
 
-public class DrawingSurface extends PApplet{
-		
-	private Person person;
-	private OriginalBridge bridge;
-	private Isle isle1;
-	private Isle isle2;
-	private LifeCounter lives;
-	private PointSystem points;
+public class DrawingSurface extends PApplet implements ScreenSwitcher{
+	
+	public float ratioX, ratioY;
+	
+	private ArrayList<Integer> keys;
+	
+	private Screen activeScreen;
+	private ArrayList<Screen> screens;
 	
 	/**
 	 * Instantiates all the objects of the game
 	 */
 	public DrawingSurface() {
-		person = new Person(60, 300);
-		isle1 = new Isle(true, 40);
-		bridge = new OriginalBridge(isle1.startX+isle1.width);
-		isle2 = new Isle(false, isle1.startX+isle1.width);
-		points = new PointSystem();
-		lives = new LifeCounter();
+		screens = new ArrayList<Screen>();
+		
+		keys = new ArrayList<Integer>();
+		
+		MenuScreen screen1 = new MenuScreen(this);
+		screens.add(screen1);
+		
+		GameScreen screen2 = new GameScreen(this);
+		screens.add(screen2);
+		
+		activeScreen = screens.get(0);
+		
 	}
 
+	
 	/**
 	 * Sets up the game in the beginning 
 	 */
@@ -43,61 +53,60 @@ public class DrawingSurface extends PApplet{
 	 * Draws all of the objects onto the DrawingSurface
 	 */
 	public void draw() {
-		background(255,255,255);
-		person.draw(this);
-		bridge.draw(this);
-		isle1.draw(this);
-		isle2.draw(this);
+		
+		ratioX = (float)width/activeScreen.DRAWING_WIDTH;
+		ratioY = (float)height/activeScreen.DRAWING_HEIGHT;
 
-		fill(50);
-		text(("Points: " + Double.toString(points.points)), 40, 40, 70, 80);  // Text wraps within text box
-		text(("Lives left: " + Double.toString(lives.lifeCount)), 40, 60, 70, 80);  // Text wraps within text box
+		pushMatrix();
+		
+		scale(ratioX, ratioY);
+		
+		activeScreen.draw();
+		
+		popMatrix();
 	}
-	
-	
-	/**
-	 * Determines if Person dies or moves to next level
-	 */
-	public void determineCourse() {
-		points.incrementPoints(isle2.detectBridge(bridge.getEndCoordinate()));
-		if (isle2.detectBridge(bridge.getEndCoordinate()) == 0) {
-			person.loseLife();
-			lives.removeLife();
-			bridge.fall(true);
-		}
-		else {
-			newLevel();
-		}
+
+	public void keyPressed() {
+		keys.add(keyCode);
 	}
-	
-	/**
-	 * Creates new Isle and OriginalBridge once Person overcomes previous one
-	 */
-	public void newLevel() {
-		if (points.points % 20 == 0) 
-			lives.addLife();
-		person.shift(bridge.getEndCoordinate()-isle2.startX);
-		isle1 = isle2;
-		isle1.shift();
-		isle2 = new Isle(false, isle1.startX+isle1.width);
-		bridge = new OriginalBridge(isle1.startX+isle1.width);
-	}
-	
-	/**
-	 * Builds the bridge when the space key is pressed
-	 */
-	public void keyPressed() {	
-		if (keyCode == ' ')
-			bridge.build(10);
-	}
-	
-	/**
-	 * When space key is released, the OriginalBridge falls, Person walks and the course is determined 
-	 */
+
 	public void keyReleased() {
-		bridge.fall(false);
-		person.walk(bridge.getEndCoordinate());
-		determineCourse();
+		while(keys.contains(keyCode))
+			keys.remove(new Integer(keyCode));
+	}
+
+	public boolean isPressed(Integer code) {
+		return keys.contains(code);
+	}
+	
+	public void mousePressed() {
+		activeScreen.mousePressed();
+	}
+	
+	public void mouseMoved() {
+		activeScreen.mouseMoved();
+	}
+	
+	public void mouseDragged() {
+		activeScreen.mouseDragged();
+	}
+	
+	public void mouseReleased() {
+		activeScreen.mouseReleased();
+	}
+	
+	public Point assumedCoordinatesToActual(Point assumed) {
+		return new Point((int)(assumed.getX()*ratioX), (int)(assumed.getY()*ratioY));
+	}
+
+	public Point actualCoordinatesToAssumed(Point actual) {
+		return new Point((int)(actual.getX()/ratioX) , (int)(actual.getY()/ratioY));
+	}
+	
+	@Override
+	public void switchScreen(int i) {
+		activeScreen = screens.get(i);
+		
 	}
 
 }
