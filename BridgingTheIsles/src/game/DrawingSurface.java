@@ -63,6 +63,7 @@ public class DrawingSurface extends PApplet{
 		if (isle2.detectBridge(bridge.getEndCoordinate()) == 0) {
 			person.loseLife();
 			lives.removeLife();
+			bridge.fall(true);
 		}
 		else {
 			newLevel();
@@ -94,7 +95,7 @@ public class DrawingSurface extends PApplet{
 	 * When space key is released, the OriginalBridge falls, Person walks and the course is determined 
 	 */
 	public void keyReleased() {
-		bridge.fall();
+		bridge.fall(false);
 		person.walk(bridge.getEndCoordinate());
 		determineCourse();
 	}

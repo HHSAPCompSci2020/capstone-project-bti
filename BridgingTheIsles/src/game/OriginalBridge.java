@@ -61,11 +61,18 @@ public class OriginalBridge{
 	}
 	
 	/**
-	 * Displays the bridge falling 
+	 * Displays the bridge falling
+	 * @param pass whether the bridge passes to next level
 	 */
-	public void fall() {
-		//Note for team: modify this method so that when the bridge doesn't reach the next Isle, the bridge falls to -90
-		if (angle >= 0)
+	public void fall(boolean pass) {
+		if (!pass) {
+			while (angle >= 0)
 			angle-=0.01;
+		}
+		else {
+			while(angle >= -Math.PI/2)
+				angle-=0.01;
+		}
+			
 	}
 }
