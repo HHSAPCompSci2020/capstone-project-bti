@@ -48,9 +48,12 @@ public class DrawingSurface extends PApplet{
 		bridge.draw(this);
 		isle1.draw(this);
 		isle2.draw(this);
-		System.out.println(points.points);
-		System.out.println(lives.lifeCount);
+
+		fill(50);
+		text(("Points: " + Double.toString(points.points)), 40, 40, 70, 80);  // Text wraps within text box
+		text(("Lives left: " + Double.toString(lives.lifeCount)), 40, 60, 70, 80);  // Text wraps within text box
 	}
+	
 	
 	/**
 	 * Determines if Person dies or moves to next level

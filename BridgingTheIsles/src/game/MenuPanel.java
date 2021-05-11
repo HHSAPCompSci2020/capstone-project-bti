@@ -32,6 +32,10 @@ public class MenuPanel extends JPanel implements ActionListener{
 		add(button);
 	}
 	
+	/**
+	 * Changes panel when game starts
+	 * @param e ActionEvent
+	 */
 	public void actionPerformed(ActionEvent e) {
 	//	w.changePanel();
 		
