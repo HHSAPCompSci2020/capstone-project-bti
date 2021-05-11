@@ -3,7 +3,8 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 
-/** Window that displays the game and contains the initial drop-down menu to choose the level 
+/** 
+ * Window that displays the game and contains the initial drop-down menu to choose the level 
  * 
  * @author Kasturi Sinha
  * @author Samantha Sung
@@ -13,7 +14,11 @@ import java.awt.event.*;
 public class MenuPanel extends JPanel implements ActionListener{
 
 	Main w;
-
+	
+	/**
+	 * Displays the level options and instructions at the beginning of the game
+	 * @param w the Main object 
+	 */
 	public MenuPanel(Main w) {
 		this.w = w;
 		JTextArea instructions = new JTextArea("Instructions:"

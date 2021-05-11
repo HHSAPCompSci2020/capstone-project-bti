@@ -6,7 +6,8 @@ import processing.core.PApplet;
 
 import java.awt.*;
 
-/** Contains the main method, creates GameWindow
+/** 
+ * Contains the main method, creates GameWindow
  * 
  * @author Kasturi Sinha
  * @author Samantha Sung

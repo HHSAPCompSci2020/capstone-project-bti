@@ -1,7 +1,8 @@
 package game;
 import processing.core.PApplet;
 
-/** Displays the instructions at the start of the game and any other button necessary during the game. 
+/** 
+ * Displays the instructions at the start of the game and any other button necessary during the game. 
  * Sets the background at the start of the game.
  * 
  * @author Kasturi Sinha
@@ -19,7 +20,9 @@ public class DrawingSurface extends PApplet{
 	private LifeCounter lives;
 	private PointSystem points;
 	
-	
+	/**
+	 * Instantiates all the objects of the game
+	 */
 	public DrawingSurface() {
 		person = new Person(60, 300);
 		isle1 = new Isle(true, 40);
@@ -29,10 +32,16 @@ public class DrawingSurface extends PApplet{
 		lives = new LifeCounter();
 	}
 
-	
+	/**
+	 * Sets up the game in the beginning 
+	 */
 	public void setup() {
+		//perhaps unnecessary
 	}
 	
+	/**
+	 * Draws all of the objects onto the DrawingSurface
+	 */
 	public void draw() {
 		background(255,255,255);
 		person.draw(this);
@@ -43,6 +52,9 @@ public class DrawingSurface extends PApplet{
 		System.out.println(lives.lifeCount);
 	}
 	
+	/**
+	 * Determines if Person dies or moves to next level
+	 */
 	public void determineCourse() {
 		points.incrementPoints(isle2.detectBridge(bridge.getEndCoordinate()));
 		if (isle2.detectBridge(bridge.getEndCoordinate()) == 0) {
@@ -54,6 +66,9 @@ public class DrawingSurface extends PApplet{
 		}
 	}
 	
+	/**
+	 * Creates new Isle and OriginalBridge once Person overcomes previous one
+	 */
 	public void newLevel() {
 		if (points.points % 20 == 0) 
 			lives.addLife();
@@ -64,11 +79,17 @@ public class DrawingSurface extends PApplet{
 		bridge = new OriginalBridge(isle1.startX+isle1.width);
 	}
 	
+	/**
+	 * Builds the bridge when the space key is pressed
+	 */
 	public void keyPressed() {	
 		if (keyCode == ' ')
 			bridge.build(10);
 	}
 	
+	/**
+	 * When space key is released, the OriginalBridge falls, Person walks and the course is determined 
+	 */
 	public void keyReleased() {
 		bridge.fall();
 		person.walk(bridge.getEndCoordinate());

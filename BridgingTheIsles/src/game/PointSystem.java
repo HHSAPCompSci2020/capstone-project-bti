@@ -1,5 +1,6 @@
 package game;
-/** Determines the points that the player has earned and increments according to the targets on the isle
+/** 
+ * Determines the points that the player has earned and increments according to the targets on the isle
  * 
  * @author Samantha Sung
  * @version 5/10

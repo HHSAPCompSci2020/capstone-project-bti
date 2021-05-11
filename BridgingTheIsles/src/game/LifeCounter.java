@@ -1,5 +1,6 @@
 package game;
-/** Determines the lives that the Person has left and is updated when the bridge fails
+/** 
+ * Determines the lives that the Person has left and is updated when the bridge fails
  * 
  * @author Samantha Sung
  * @version 5/10
@@ -18,7 +19,7 @@ public class LifeCounter {
 	
 	/**
 	 * Adds one more life (this is when player has gained 20 points)
-	 * @return New life count
+	 * @return lifeCount New life count
 	 */
 	public int addLife() {
 		lifeCount--;
@@ -27,7 +28,7 @@ public class LifeCounter {
 	
 	/**
 	 * Subtracts one life (this is when the player dies)
-	 * @return New life count
+	 * @return lifeCount New life count
 	 */
 	public int removeLife() {
 		lifeCount++;
