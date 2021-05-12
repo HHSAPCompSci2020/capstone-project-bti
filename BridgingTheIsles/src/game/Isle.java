@@ -7,13 +7,14 @@ import processing.core.PApplet;
  * @author Kasturi Sinha
  * @author Samantha Sung
  * @author Riya Gupta
- * @version 5/10
+ * @version 5/11
 */
 
 public class Isle{
 
 	protected double startX;
 	protected double width;
+	private boolean shifting;
 	
 	/**
 	 * Instantiates the width and starting x-coordinate of the island
@@ -21,6 +22,7 @@ public class Isle{
 	public Isle() {
 		width = Math.random() * 200+20; 
 		startX = Math.random() * 400 + 40; 
+		shifting = false;
 	}
 	
 	/**
@@ -34,6 +36,7 @@ public class Isle{
 			startX = bounds;
 		else
 			startX = bounds+Math.random()*200+40;
+		shifting = false;
 	}
 	
 	/**
@@ -50,7 +53,7 @@ public class Isle{
 		else if (x >= startX && x <= startX+width) 
 			return 1;
 		else
-			return 0;
+			return 0;	
 	}
 	
 	/**
@@ -67,6 +70,14 @@ public class Isle{
 	 * Shifts the isle over when the player successfully makes it
 	 */
 	public void shift() {
-		startX = 40; 
+		shifting = true;
+	}
+	
+	public void act() {
+		if (shifting) {
+			startX -= 10;
+			if(startX <= 40)
+				shifting = false;
+		}
 	}
 }

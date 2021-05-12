@@ -7,15 +7,27 @@ import processing.core.PApplet;
  * @author Kasturi Sinha
  * @author Samantha Sung
  * @author Riya Gupta
- * @version 5/10
+ * @version 5/11
 */
 public class Person {
 
 	protected double x;
 	protected double y;
+	private boolean walking;
+	private boolean dying;
+	private boolean shifting;
+	private double endSpot;
+	private double beginSpot;
 
-//	private double xVelocity;
-//	private double yVelocity;
+	public Person() {
+		x = 60;
+		y = 300;
+		walking = false;
+		dying = false;
+		shifting = false;
+		endSpot = 0;
+		beginSpot = 0;
+	}
 	
 	/**
 	 * Initializes the coordinates of the Person 
@@ -25,6 +37,11 @@ public class Person {
 	public Person(int x, int y) {
 		this.x = x;
 		this.y = y; 
+		walking = false;
+		dying = false;
+		shifting = false;
+		endSpot = 0;
+		beginSpot = 0;
 	}
 	
 	/**
@@ -45,10 +62,9 @@ public class Person {
 	 * Person walks to the next Isle
 	 * @param endSpot where Person should stop walking
 	 */
-	public void walk(double endSpot) {
-		while (x < endSpot) {
-			x+=0.00001;
-		}	
+	public void walk(double end) {
+		endSpot = end;
+		walking = true;
 	}
 	
 	/**
@@ -56,15 +72,32 @@ public class Person {
 	 * @param spotOnIsle x-coordinate to which Person should be teleported to
 	 */
 	public void shift(double spotOnIsle) {
-		x = 60+spotOnIsle;
+		beginSpot = spotOnIsle;
+		shifting = true;
 	}
 	
 	/**
 	 * Person falls when life is lost
 	 */
 	public void loseLife() {
-		while (y > 0) {
-			y-=0.00001;
+		dying = true;
+	}
+	
+	public void act() {
+		if (dying) {
+			y += 5;
+			if (y <= 0) 
+				dying = false;
+		}
+		else if(walking) {
+			x+= 5;
+			if (x >= endSpot)
+				walking = false;
+		}
+		else if(shifting) {
+			x-=10;
+			if (x <= 60+beginSpot)
+				shifting = false;
 		}
 	}
 

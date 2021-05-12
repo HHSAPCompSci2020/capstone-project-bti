@@ -8,13 +8,15 @@ import processing.core.PApplet;
  * @author Kasturi Sinha
  * @author Samantha Sung
  * @author Riya Gupta
- * @version 5/10
+ * @version 5/11
 */
 public class OriginalBridge{
 
 	protected double startX;
 	protected double length;
 	protected double angle;
+	private double goalAngle;
+	private boolean falling;
 	
 	/**
 	 * Initializes the starting x-coordinate, length and angle of the bridge to pre-set values
@@ -23,6 +25,8 @@ public class OriginalBridge{
 		startX = 40;
 		length = 0;
 		angle = Math.PI/2;
+		goalAngle = Math.PI/2;
+		falling = false;
 	}
 	
 	/**
@@ -33,6 +37,8 @@ public class OriginalBridge{
 		startX = start;
 		length = 0;
 		angle = Math.PI/2;
+		goalAngle = Math.PI/2;
+		falling = false;
 	}
 	
 	/**
@@ -64,15 +70,17 @@ public class OriginalBridge{
 	 * Displays the bridge falling
 	 * @param pass whether the bridge passes to next level
 	 */
-	public void fall(boolean pass) {
-		if (!pass) {
-			while (angle >= 0)
-			angle-=0.01;
-		}
-		else {
-			while(angle >= -Math.PI/2)
-				angle-=0.01;
-		}
+	public void fall(double a) {
+		falling = true;
+		goalAngle = a;
 			
+	}
+	
+	public void act() {
+		if (falling) {
+			angle -= 0.1;
+			if (angle <= goalAngle) 
+				falling = false;
+		}
 	}
 }
