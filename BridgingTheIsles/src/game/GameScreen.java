@@ -92,7 +92,7 @@ public class GameScreen extends Screen {
 			isle1.dir = 1;
 			isle1.doNotShift(bridge.getEndCoordinate()-person.x);
 			isle1.shift();
-			isle2 = new Isle(2, 58+isle1.startX);
+			isle2 = new Isle(2, 58+isle1.width);
 			isle2.doNotShift(bridge.getEndCoordinate()-person.x);
 			isle2.shift();
 		}	
