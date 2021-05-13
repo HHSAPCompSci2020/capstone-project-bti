@@ -8,13 +8,13 @@ import processing.core.PApplet;
  * @author Kasturi Sinha
  * @author Samantha Sung
  * @author Riya Gupta
- * @version 5/11
+ * @version 5/13
 */
 public class OriginalBridge{
 
 	protected double startX;
 	protected double length;
-	protected double angle;
+	private double angle;
 	private double goalAngle;
 	private boolean falling;
 	
@@ -25,7 +25,7 @@ public class OriginalBridge{
 		startX = 40;
 		length = 0;
 		angle = Math.PI/2;
-		goalAngle = Math.PI/2;
+		goalAngle = 0;
 		falling = false;
 	}
 	
@@ -37,7 +37,7 @@ public class OriginalBridge{
 		startX = start;
 		length = 0;
 		angle = Math.PI/2;
-		goalAngle = Math.PI/2;
+		goalAngle = 0;
 		falling = false;
 	}
 	
@@ -47,7 +47,7 @@ public class OriginalBridge{
 	 */
 	public void draw(PApplet surface) {
 		surface.strokeWeight(2);
-		surface.line((float)startX, 300, (float)(startX+Math.cos(angle)*length), (float)(300-Math.sin(angle)*length));
+		surface.line((float)startX, 400, (float)(startX+Math.cos(angle)*length), (float)(400-Math.sin(angle)*length));
 	}
 	
 	/**
@@ -78,9 +78,12 @@ public class OriginalBridge{
 	
 	public void act() {
 		if (falling) {
-			angle -= 0.1;
-			if (angle <= goalAngle) 
+			angle -= 0.028;
+			if (angle < goalAngle) {
+				angle = Math.PI/2;
+				length = 0;
 				falling = false;
+			}
 		}
 	}
 }

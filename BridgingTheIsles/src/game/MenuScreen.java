@@ -40,7 +40,7 @@ public class MenuScreen extends Screen {
 		String instructions = "Instructions:\r\n"
 				+ "				 \n1. You are on a deserted isle\r\n"
 				+ "				 \n2. Press on the space button for a bridge to continue to get built. It gets longer in the vertical direction.\r\n"
-				+ "				 \n3. Press 'enter' once you think the bridge is the correct length to let the bridge fall and connect the two islands\r\n"
+				+ "				 \n3. Release once you think the bridge is the correct length to let the bridge fall and connect the two islands\r\n"
 				+ "				 \n4. The bridge falls, and the end point determines if you succeed";
 		surface.text(instructions, 10, 20);
 		

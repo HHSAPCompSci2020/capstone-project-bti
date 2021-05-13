@@ -7,7 +7,7 @@ import processing.core.PApplet;
  * @author Kasturi Sinha
  * @author Samantha Sung
  * @author Riya Gupta
- * @version 5/11
+ * @version 5/13
 */
 public class Person {
 
@@ -20,8 +20,8 @@ public class Person {
 	private double beginSpot;
 
 	public Person() {
-		x = 60;
-		y = 300;
+		x = 80;
+		y = 400;
 		walking = false;
 		dying = false;
 		shifting = false;
@@ -84,15 +84,16 @@ public class Person {
 	}
 	
 	public void act() {
-		if (dying) {
+		if(walking) {
+			x+= 5;
+			if (x >= endSpot) {
+				walking = false;
+			}
+		}
+		else if (dying) {
 			y += 5;
 			if (y <= 0) 
 				dying = false;
-		}
-		else if(walking) {
-			x+= 5;
-			if (x >= endSpot)
-				walking = false;
 		}
 		else if(shifting) {
 			x-=10;

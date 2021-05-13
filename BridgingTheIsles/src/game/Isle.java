@@ -7,7 +7,7 @@ import processing.core.PApplet;
  * @author Kasturi Sinha
  * @author Samantha Sung
  * @author Riya Gupta
- * @version 5/11
+ * @version 5/13
 */
 
 public class Isle{
@@ -15,14 +15,22 @@ public class Isle{
 	protected double startX;
 	protected double width;
 	private boolean shifting;
+	private boolean notShifting;
+	private double path;
+	protected int dir; //0 = going out of left frame; 1 = going to first position; 2 = going to second position
+	private double goalX;
 	
 	/**
 	 * Instantiates the width and starting x-coordinate of the island
 	 */
 	public Isle() {
 		width = Math.random() * 200+20; 
-		startX = Math.random() * 400 + 40; 
+		startX = Math.random() * 250 + 60; 
 		shifting = false;
+		notShifting = false;
+		path = 0;
+		dir = 1;
+		goalX = 700;
 	}
 	
 	/**
@@ -30,13 +38,22 @@ public class Isle{
 	 * @param start the starting x-coordinate of Isle 
 	 * @param bounds 
 	 */
-	public Isle(boolean start, double bounds) {
+	public Isle(boolean start, int dir, double bounds) {
 		width = Math.random() * 200 + 20; 
 		if (start)
 			startX = bounds;
-		else
-			startX = bounds+Math.random()*200+40;
+		else 
+			startX = bounds+Math.random() * 150 + 60;
+		
+		if(dir == 2){
+			goalX = startX-150;
+			startX += 600;
+		}
+		
 		shifting = false;
+		this.dir = dir;
+		notShifting = false;
+		path = 0;
 	}
 	
 	/**
@@ -63,7 +80,7 @@ public class Isle{
 	public void draw(PApplet surface) {
 		surface.strokeWeight(1);
 		surface.fill(204, 255, 204);
-		surface.rect((float)startX, 300, (float)width, 150);
+		surface.rect((float)startX, 400, (float)width, 150);
 	}
 	
 	/**
@@ -73,11 +90,27 @@ public class Isle{
 		shifting = true;
 	}
 	
+	public void doNotShift(double path) {
+		notShifting = true;
+		this.path = path;
+	}
+	
 	public void act() {
-		if (shifting) {
-			startX -= 10;
-			if(startX <= 40)
-				shifting = false;
+		if (notShifting) {
+			path-=5;
+			if(path <= 0) {
+				notShifting = false;
+			}
 		}
+		else if (shifting) {
+			startX -= 10;
+			if(dir == 1 && startX <= 60)
+				shifting = false;
+			else if (dir == 0 && startX <= -1000)
+				shifting = false;
+			else if (dir == 2 && startX <= goalX) {
+				shifting = false;
+			}
+		}	
 	}
 }

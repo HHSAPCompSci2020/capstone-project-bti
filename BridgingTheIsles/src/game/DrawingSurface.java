@@ -11,7 +11,7 @@ import processing.core.PApplet;
  * @author Kasturi Sinha
  * @author Samantha Sung
  * @author Riya Gupta
- * @version 5/10
+ * @version 5/13
 */
 
 public class DrawingSurface extends PApplet implements ScreenSwitcher{
@@ -73,6 +73,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher{
 	public void keyReleased() {
 		while(keys.contains(keyCode))
 			keys.remove(new Integer(keyCode));
+		activeScreen.keyReleased();
 	}
 
 	public boolean isPressed(Integer code) {
@@ -83,22 +84,6 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher{
 		activeScreen.mousePressed();
 	}
 	
-	public void mouseMoved() {
-		activeScreen.mouseMoved();
-	}
-	
-	public void mouseDragged() {
-		activeScreen.mouseDragged();
-	}
-	
-	public void mouseReleased() {
-		activeScreen.mouseReleased();
-	}
-	
-	public Point assumedCoordinatesToActual(Point assumed) {
-		return new Point((int)(assumed.getX()*ratioX), (int)(assumed.getY()*ratioY));
-	}
-
 	public Point actualCoordinatesToAssumed(Point actual) {
 		return new Point((int)(actual.getX()/ratioX) , (int)(actual.getY()/ratioY));
 	}
