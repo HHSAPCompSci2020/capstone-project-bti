@@ -17,7 +17,7 @@ public class Person {
 	private boolean dying;
 	private boolean shifting;
 	private double endSpot;
-	private double beginSpot;
+	private double shiftSpot;
 
 	public Person() {
 		x = 80;
@@ -26,7 +26,7 @@ public class Person {
 		dying = false;
 		shifting = false;
 		endSpot = 0;
-		beginSpot = 0;
+		shiftSpot = 0;
 	}
 	
 	/**
@@ -41,7 +41,7 @@ public class Person {
 		dying = false;
 		shifting = false;
 		endSpot = 0;
-		beginSpot = 0;
+		shiftSpot = 0;
 	}
 	
 	/**
@@ -69,10 +69,10 @@ public class Person {
 	
 	/**
 	 * Shifts Person when new Isle pops up on screen 
-	 * @param spotOnIsle x-coordinate to which Person should be teleported to
+	 * @param spotOnIsle x-coordinate to which Person should be shift to
 	 */
 	public void shift(double spotOnIsle) {
-		beginSpot = spotOnIsle;
+		shiftSpot = spotOnIsle+60;
 		shifting = true;
 	}
 	
@@ -97,7 +97,7 @@ public class Person {
 		}
 		else if(shifting) {
 			x-=10;
-			if (x <= 60+beginSpot)
+			if (x <= shiftSpot)
 				shifting = false;
 		}
 	}

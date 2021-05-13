@@ -17,7 +17,7 @@ public class Isle{
 	private boolean shifting;
 	private boolean notShifting;
 	private double path;
-	protected int dir; //0 = going out of left frame; 1 = going to first position; 2 = going to second position
+	protected int dir; //0 = going out of left frame; 1 = going to first position; 2 = going to second position 3 = not moving 4 = not moving first isle
 	private double goalX;
 	
 	/**
@@ -38,9 +38,9 @@ public class Isle{
 	 * @param start the starting x-coordinate of Isle 
 	 * @param bounds 
 	 */
-	public Isle(boolean start, int dir, double bounds) {
+	public Isle(int dir, double bounds) {
 		width = Math.random() * 200 + 20; 
-		if (start)
+		if (dir == 4)
 			startX = bounds;
 		else 
 			startX = bounds+Math.random() * 150 + 60;

@@ -26,9 +26,9 @@ public class GameScreen extends Screen {
 		this.surface = surface;
 		
 		person = new Person(80, 400);
-		isle1 = new Isle(true, 1, 60);
+		isle1 = new Isle(4, 60);
 		bridge = new OriginalBridge(isle1.startX+isle1.width);
-		isle2 = new Isle(false, 1, isle1.startX+isle1.width);
+		isle2 = new Isle(3, isle1.startX+isle1.width);
 		tempIsle = isle1;
 		points = new PointSystem();
 		lives = new LifeCounter();
@@ -92,7 +92,7 @@ public class GameScreen extends Screen {
 			isle1.dir = 1;
 			isle1.doNotShift(bridge.getEndCoordinate()-person.x);
 			isle1.shift();
-			isle2 = new Isle(false, 2, 58+isle1.startX);
+			isle2 = new Isle(2, 58+isle1.startX);
 			isle2.doNotShift(bridge.getEndCoordinate()-person.x);
 			isle2.shift();
 		}	

@@ -78,7 +78,7 @@ public class OriginalBridge{
 	
 	public void act() {
 		if (falling) {
-			angle -= 0.028;
+			angle -= 0.0295;
 			if (angle < goalAngle) {
 				angle = Math.PI/2;
 				length = 0;
