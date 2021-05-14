@@ -18,17 +18,19 @@ public class Isle{
 	private double path;
 	protected int dir; //0 = going out of left frame; 1 = going to first position; 2 = going to second position 3 = not moving 4 = not moving first isle
 	private double goalX;
+	private double middle; 
 
 	/**
 	 * Instantiates the width and starting x-coordinate of the island
 	 */
 	public Isle() {
-		width = Math.random() * 200+20; 
+		width = Math.random() * 200 + 20; 
 		startX = Math.random() * 250 + 60; 
 		shifting = false;
 		path = 0;
 		dir = 1;
 		goalX = 700;
+		middle = startX + width / 2;
 	}
 
 	/**
@@ -51,6 +53,7 @@ public class Isle{
 		shifting = false;
 		this.dir = dir;
 		path = 0;
+		middle = startX + width / 2;
 	}
 
 	/**
@@ -59,12 +62,11 @@ public class Isle{
 	 * @return the number of points player should recieve
 	 */
 	public int detectBridge(double x) {
-		double middle = startX+width/2;
-		if (x >= middle-width/6 && x <= middle+width/6) 
+		if (x >= middle  -width / 6 && x <= middle + width/6) 
 			return 3;
-		else if (x >= middle-width/3 && x <= middle+width/3) 
+		else if (x >= middle-width / 3 && x <= middle + width/3) 
 			return 2;
-		else if (x >= startX && x <= startX+width) 
+		else if (x >= startX && x <= startX + width) 
 			return 1;
 		else
 			return 0;	
@@ -77,7 +79,17 @@ public class Isle{
 	public void draw(PApplet surface) {
 		surface.strokeWeight(1);
 		surface.fill(204, 255, 204);
+		surface.stroke(0, 0, 0);
 		surface.rect((float)startX, 400, (float)width, 150);
+		
+		surface.strokeWeight(4);
+		surface.stroke(230, 230, 250);
+		surface.line((float)startX, 400f, (float)(startX + width), 400f);
+		surface.stroke(0, 255, 255);
+		surface.line((float)(middle - width / 3), 400f, (float)(middle + width / 3), 400f);
+		surface.stroke(34, 139, 34);
+		surface.line((float)(middle - width / 6) , 400f, (float)(middle + width / 6), 400f);
+ 
 	}
 
 	/**
