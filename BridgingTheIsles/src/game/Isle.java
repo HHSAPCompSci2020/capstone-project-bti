@@ -42,7 +42,7 @@ public class Isle{
 		if (dir == 4)
 			startX = bounds;
 		else 
-			startX = bounds+Math.random() * 150 + 60;
+			startX = bounds+Math.random() * 300 + 60;
 
 		if(dir == 2){
 			goalX = startX;
