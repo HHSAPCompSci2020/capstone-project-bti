@@ -1,35 +1,34 @@
 package game;
-
-
-
 import java.awt.Point;
 import java.awt.Rectangle;
 
-
+/**
+ * Displays the game 
+ * @author Samantha Sung
+ * @author Kasturi Sinha
+ * @version 5/14
+ */
 public class MenuScreen extends Screen {
 
 	private DrawingSurface surface;
-	
 	private Rectangle button;
 
+	/**
+	 * Instantiates all of GameScreen's fields 
+	 * @param surface
+	 */
 	public MenuScreen(DrawingSurface surface) {
 		super(800,600);
 		this.surface = surface;
-
 		button = new Rectangle(800/2-100,600/2-50,200,100);
 	}
 
-
+	/**
+	 * Draws all of the objects onto the DrawingSurface
+	 */
 	public void draw() {
-
-		surface.pushStyle();
-		
+		surface.pushStyle();	
 		surface.background(255,255,255);
-		
-		
-		
-		
-		
 		surface.rect(button.x, button.y, button.width, button.height, 10, 10, 10, 10);
 		surface.fill(0);
 		String str = "Level 1";
@@ -46,16 +45,13 @@ public class MenuScreen extends Screen {
 		
 		surface.popStyle();
 	}
-
-
-
-	
+	/**
+	 * Switches screen when mouse is pressed
+	 */
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (button.contains(p))
 			surface.switchScreen(ScreenSwitcher.SCREEN2);
 	}
-	
-
 }
 

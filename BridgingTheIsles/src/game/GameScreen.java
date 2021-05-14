@@ -8,7 +8,6 @@ import processing.core.PApplet;
  * @author Samantha Sung
  * @author Kasturi Sinha
  * @version 5/13
- *
  */
 public class GameScreen extends Screen {
 	

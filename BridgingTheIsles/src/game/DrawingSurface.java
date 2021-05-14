@@ -103,6 +103,11 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher{
 		activeScreen.mousePressed();
 	}
 	
+	/**
+	 * Converts actual coordinates to the assumed
+	 * @param actual the actual point
+	 * @return the button point
+	 */
 	public Point actualCoordinatesToAssumed(Point actual) {
 		return new Point((int)(actual.getX()/ratioX) , (int)(actual.getY()/ratioY));
 	}
