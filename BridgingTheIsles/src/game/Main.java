@@ -1,13 +1,11 @@
 package game;
 import javax.swing.*;
-
 import processing.awt.PSurfaceAWT;
 import processing.core.PApplet;
-
 import java.awt.*;
 
 /** 
- * Contains the main method, creates GameWindow
+ * Contains the main method, creates DrawingSurface
  * 
  * @author Kasturi Sinha
  * @author Samantha Sung
