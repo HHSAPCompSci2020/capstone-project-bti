@@ -68,9 +68,12 @@ public class GameScreen extends Screen {
 		tempIsle.act();
 		person.act();
 
+		surface.fill(204, 255, 255);
+		surface.rect(580, 30, 180, 90);
 		surface.fill(50);
-		surface.text(("Points: " + Integer.toString(points.points)), 40, 40, 70, 80);  // Text wraps within text box
-		surface.text(("Lives left: " + Integer.toString(lives.lifeCount)), 40, 60, 70, 80);  // Text wraps within text box
+		surface.textSize(20);
+		surface.text(("Points: " + Integer.toString(points.points)), 600, 40, 800, 80);
+		surface.text(("Lives left: " + Integer.toString(lives.lifeCount)), 600, 80, 700, 120); 
 
 		if(surface.isPressed(KeyEvent.VK_SPACE)) {
 			bridge.startX = isle1.startX+isle1.width;

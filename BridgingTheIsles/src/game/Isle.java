@@ -78,16 +78,16 @@ public class Isle{
 	public void draw(PApplet surface) {
 		middle = startX + width / 2;
 		surface.strokeWeight(1);
-		surface.fill(204, 255, 204);
+		surface.fill(204, 255, 51);
 		surface.stroke(0, 0, 0);
 		surface.rect((float)startX, 400, (float)width, 150);
 		
 		surface.strokeWeight(6);
-		surface.stroke(255, 0, 0);
+		surface.stroke(255, 153, 51);
 		surface.line((float)startX, 400f, (float)(startX + width), 400f);
 		surface.stroke(255, 102, 0);
 		surface.line((float)(middle - width / 3), 400f, (float)(middle + width / 3), 400f);
-		surface.stroke(0, 204, 0);
+		surface.stroke(0, 255, 0);
 		surface.line((float)(middle - width / 6) , 400f, (float)(middle + width / 6), 400f);
  
 	}

@@ -53,7 +53,7 @@ public class Person {
 	 * @param surface PApplet onto which the Person will be drawn
 	 */
 	public void draw(PApplet surface) {
-		surface.fill(255, 102, 102);
+		surface.fill(204, 51, 255);
 		surface.stroke(0, 0, 0);
 		surface.strokeWeight(1);
 		surface.circle((float)x-10, (float)y-55, 20);
