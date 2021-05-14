@@ -52,7 +52,10 @@ public class GameScreen extends Screen {
 	 */
 	public void draw() {
 
-		surface.background(255);
+		surface.background(102, 255, 255);
+		surface.fill(0, 0, 255);
+		surface.rect(0, 500, 800, 500);
+		
 		isle1.draw(surface);
 		isle2.draw(surface);
 		tempIsle.draw(surface);
@@ -70,7 +73,7 @@ public class GameScreen extends Screen {
 		surface.text(("Lives left: " + Integer.toString(lives.lifeCount)), 40, 60, 70, 80);  // Text wraps within text box
 
 		if(surface.isPressed(KeyEvent.VK_SPACE)) {
-			bridge.startX = 60+isle1.width;
+			bridge.startX = isle1.startX+isle1.width;
 			bridge.build(5);
 		}
 	}
