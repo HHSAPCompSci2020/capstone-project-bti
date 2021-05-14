@@ -105,6 +105,10 @@ public class GameScreen extends Screen {
 			bridge.fallDown();
 			person.loseLife();
 			lives.removeLife();
+			
+			if(lives.lifeCount > 0)
+				person = new Person(80, 400);
+				bridge = new OriginalBridge(isle1.startX+isle1.width);
 		}		
 	}
 	
