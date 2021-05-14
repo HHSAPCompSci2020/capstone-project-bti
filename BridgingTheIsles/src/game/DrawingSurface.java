@@ -16,6 +16,9 @@ import processing.core.PApplet;
 
 public class DrawingSurface extends PApplet implements ScreenSwitcher{
 	
+	/**
+	 * Ratio of the width & height of the screen to the active screen 
+	 */
 	public float ratioX, ratioY;
 	
 	private ArrayList<Integer> keys;
@@ -66,20 +69,36 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher{
 		popMatrix();
 	}
 
+	/**
+	 * When a key is pressed, it is added to ArrayList keys
+	 */
 	public void keyPressed() {
 		keys.add(keyCode);
 	}
 
+	/**
+	 * When keys contain the specified key, 
+	 * it will be removed and the keyReleased for the activeScreen 
+	 * will be called
+	 */
 	public void keyReleased() {
 		while(keys.contains(keyCode))
 			keys.remove(new Integer(keyCode));
 		activeScreen.keyReleased();
 	}
 
+	/**
+	 * 
+	 * @param code the key that is supposedly pressed
+	 * @return if the specified key is pressed
+	 */
 	public boolean isPressed(Integer code) {
 		return keys.contains(code);
 	}
 	
+	/**
+	 * Calls the mousePressed() of the activeScreen
+	 */
 	public void mousePressed() {
 		activeScreen.mousePressed();
 	}

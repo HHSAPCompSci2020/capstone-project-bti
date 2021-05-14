@@ -19,6 +19,9 @@ public class Person {
 	private double endSpot;
 	private double shiftSpot;
 
+	/**
+	 * Initializes the coordinates of the Person and its other attributes
+	 */
 	public Person() {
 		x = 80;
 		y = 400;
@@ -83,6 +86,9 @@ public class Person {
 		dying = true;
 	}
 	
+	/**
+	 * Determines if the person is walking, dying or shifting. 
+	 */
 	public void act() {
 		if(walking) {
 			x+= 5;
