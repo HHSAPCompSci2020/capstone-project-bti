@@ -1,7 +1,12 @@
 package game;
-
 import processing.core.PApplet;
 
+/**
+ * Switches between screens
+ * @author Samantha Sung
+ * @version 5/13
+ *
+ */
 public abstract class Screen{
 
 	public final int DRAWING_WIDTH, DRAWING_HEIGHT;

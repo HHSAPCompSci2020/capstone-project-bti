@@ -8,7 +8,7 @@ import processing.core.PApplet;
  * @author Samantha Sung
  * @author Riya Gupta
  * @version 5/13
-*/
+ */
 
 public class Isle{
 
@@ -18,7 +18,7 @@ public class Isle{
 	private double path;
 	protected int dir; //0 = going out of left frame; 1 = going to first position; 2 = going to second position 3 = not moving 4 = not moving first isle
 	private double goalX;
-	
+
 	/**
 	 * Instantiates the width and starting x-coordinate of the island
 	 */
@@ -30,7 +30,7 @@ public class Isle{
 		dir = 1;
 		goalX = 700;
 	}
-	
+
 	/**
 	 * Instantiates the width and starting x-coordinate of Isle according to parameters
 	 * @param start the starting x-coordinate of Isle 
@@ -42,17 +42,17 @@ public class Isle{
 			startX = bounds;
 		else 
 			startX = bounds+Math.random() * 150 + 60;
-		
+
 		if(dir == 2){
 			goalX = startX;
 			startX = 1000;
 		}
-		
+
 		shifting = false;
 		this.dir = dir;
 		path = 0;
 	}
-	
+
 	/**
 	 * Determines how many points the player should receive according to where the bridge lands
 	 * @param x x-coordinate of where the bridge lands 
@@ -69,7 +69,7 @@ public class Isle{
 		else
 			return 0;	
 	}
-	
+
 	/**
 	 * Draws the Isle
 	 * @param surface PApplet onto which the Isle will be drawn 
@@ -79,7 +79,7 @@ public class Isle{
 		surface.fill(204, 255, 204);
 		surface.rect((float)startX, 400, (float)width, 150);
 	}
-	
+
 	/**
 	 * Shifts the isle over when the player successfully makes it
 	 */
@@ -88,7 +88,9 @@ public class Isle{
 		this.path = path;
 	}
 
-	
+	/**
+	 * Shifts the Isle as necessary
+	 */
 	public void act() {
 		if (shifting) {
 			path-=5;

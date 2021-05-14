@@ -1,18 +1,19 @@
 package game;
-
-
 import java.awt.event.*;
 import java.util.ArrayList;
-
 import processing.core.PApplet;
 
-
-
+/**
+ * Displays the game 
+ * @author Samantha Sung
+ * @author Kasturi Sinha
+ * @version 5/13
+ *
+ */
 public class GameScreen extends Screen {
 	
 	
 	private DrawingSurface surface;
-	
 	private Person person;
 	private OriginalBridge bridge;
 	private Isle isle1;
@@ -21,6 +22,10 @@ public class GameScreen extends Screen {
 	private PointSystem points;
 	private LifeCounter lives;
 	
+	/**
+	 * Instantiates all of GameScreen's fields 
+	 * @param surface
+	 */
 	public GameScreen(DrawingSurface surface) {
 		super(800,600);
 		this.surface = surface;
@@ -71,6 +76,9 @@ public class GameScreen extends Screen {
 		}
 	}
 
+	/**
+	 * Acts according to whether the bridge falls on the island
+	 */
 	public void keyReleased() {
 		int p = isle2.detectBridge(bridge.getEndCoordinate());
 		

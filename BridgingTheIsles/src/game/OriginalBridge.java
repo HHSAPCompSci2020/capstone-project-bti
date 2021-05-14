@@ -78,11 +78,16 @@ public class OriginalBridge{
 		this.path = path;
 	}
 	
+	/**
+	 * Sets fallingAllTheWay to true
+	 */
 	public void fallDown() {
 		fallingAllTheWay = true;
 	}
 
-	
+	/**
+	 * Determines what to do depending on whether the bridge is falling or fallingAllTheWay
+	 */
 	public void act() {
 		if (falling) {
 			if(angle > 0)
