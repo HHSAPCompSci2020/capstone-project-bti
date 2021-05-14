@@ -83,9 +83,9 @@ public class Isle{
 		surface.rect((float)startX, 400, (float)width, 150);
 		
 		surface.strokeWeight(6);
-		surface.stroke(255, 153, 51);
+		surface.stroke(255, 51, 0);
 		surface.line((float)startX, 400f, (float)(startX + width), 400f);
-		surface.stroke(255, 102, 0);
+		surface.stroke(255, 153, 0);
 		surface.line((float)(middle - width / 3), 400f, (float)(middle + width / 3), 400f);
 		surface.stroke(0, 255, 0);
 		surface.line((float)(middle - width / 6) , 400f, (float)(middle + width / 6), 400f);
