@@ -77,6 +77,7 @@ public class Isle{
 	 * @param surface PApplet onto which the Isle will be drawn 
 	 */
 	public void draw(PApplet surface) {
+		middle = startX + width / 2;
 		surface.strokeWeight(1);
 		surface.fill(204, 255, 204);
 		surface.stroke(0, 0, 0);
