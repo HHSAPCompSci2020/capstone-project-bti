@@ -51,7 +51,7 @@ Must-have Features:
 * (DONE) There is a point counter.
    * The player gets a point every time they successfully cross to the next island.
 * (DONE) The player can build a bridge by pressing the space button, and the longer the player presses,
- the longer the bridge gets.[f][g][h][i]
+ the longer the bridge gets.
 * (DONE) The game automatically builds a new isle
    * Once the player gets to the isle, the screen slides to the left to reveal the next isle
 * (DONE) The player loses the game by making the bridge too short (it doesn’t reach the isle) or too long (it goes longer than the right edge of the isle)
@@ -136,17 +136,3 @@ Credits:
 * Mentors: Ankur & Vipul (Riya’s cousins)
    * Helped with brainstorming
 
-
-
-
-[a]Here you say that you die and lose a life, but in the instructions, you just die and restart
-[b]instructions in step 12
-[c]This instruction matches our want-to-have feature that gives players lives
-[d]_Marked as resolved_
-[e]_Re-opened_
-[f]When building a bridge, is it just a one chance kind of thing? Or does the building bridge elongate and then when it reaches a "max" it goes back down and when it goes to zero then it elongates again? I feel like doing this will make the game easier because you can time it a little better than it just builds and if you go over then you die.
-[g]We're planning on having the bridge elongate forever, even if it goes out of frame.
-[h]_Marked as resolved_
-[i]_Re-opened_
-[j]I really like these challenges! The game seems pretty basic and I feel like after a couple of runs, it would be kind of repetitive. However, if you guys get a chance to do some of these other subclasses, it would be really fun!
-[k]Thank you!
