@@ -91,18 +91,20 @@ public class OriginalBridge{
 	 */
 	public void act() {
 		if (falling) {
-			if(angle > 0)
+			if(angle > 0.04)
 				angle -= 0.04;
 			path -= 5;
 			if(path <=0) {
-				angle = Math.PI/2;
-				length = 0;
+				if(!fallingAllTheWay) {
+					angle = Math.PI/2;
+					length = 0;
+				}
 				falling = false;
 			}
 		}
 		else if (fallingAllTheWay) {
 			angle -= 0.04;
-			if (angle <= -Math.PI/2)
+			if (angle <= -Math.PI/2+0.04)
 				fallingAllTheWay = false;
 		}
 	}

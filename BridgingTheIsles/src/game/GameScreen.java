@@ -81,6 +81,11 @@ public class GameScreen extends Screen {
 	 */
 	public void keyReleased() {
 		int p = isle2.detectBridge(bridge.getEndCoordinate());
+		int previous = points.points;
+		points.incrementPoints(p);
+		int n = points.points/20;
+		if (previous < 20*n && points.points >= 20*n) 
+			lives.addLife();
 		
 		person.walk(bridge.getEndCoordinate());
 		bridge.fall(bridge.getEndCoordinate()-person.x);
@@ -100,14 +105,7 @@ public class GameScreen extends Screen {
 			bridge.fallDown();
 			person.loseLife();
 			lives.removeLife();
-		}
-		
-		int previous = points.points;
-		points.incrementPoints(p);
-		int n = points.points/20;
-		if (previous < 20*n && points.points >= 20*n) 
-			lives.addLife();
-			
+		}		
 	}
 	
 }
