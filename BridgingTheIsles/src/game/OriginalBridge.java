@@ -15,8 +15,9 @@ public class OriginalBridge{
 	protected double startX;
 	protected double length;
 	private double angle;
-	private double goalAngle;
 	private boolean falling;
+	private boolean fallingAllTheWay;
+	private double path;
 	
 	/**
 	 * Initializes the starting x-coordinate, length and angle of the bridge to pre-set values
@@ -25,8 +26,9 @@ public class OriginalBridge{
 		startX = 40;
 		length = 0;
 		angle = Math.PI/2;
-		goalAngle = 0;
 		falling = false;
+		fallingAllTheWay = false;
+		path = 0;
 	}
 	
 	/**
@@ -37,8 +39,9 @@ public class OriginalBridge{
 		startX = start;
 		length = 0;
 		angle = Math.PI/2;
-		goalAngle = 0;
 		falling = false;
+		fallingAllTheWay = false;
+		path = 0;
 	}
 	
 	/**
@@ -70,20 +73,32 @@ public class OriginalBridge{
 	 * Displays the bridge falling
 	 * @param pass whether the bridge passes to next level
 	 */
-	public void fall(double a) {
+	public void fall(double path) {
 		falling = true;
-		goalAngle = a;
-			
+		this.path = path;
 	}
+	
+	public void fallDown() {
+		fallingAllTheWay = true;
+	}
+
 	
 	public void act() {
 		if (falling) {
-			angle -= 0.0295;
-			if (angle < goalAngle) {
+			if(angle > 0)
+				angle -= 0.04;
+			path -= 5;
+			if(path <=0) {
 				angle = Math.PI/2;
 				length = 0;
 				falling = false;
 			}
 		}
+		else if (fallingAllTheWay) {
+			angle -= 0.04;
+			if (angle <= -Math.PI/2)
+				fallingAllTheWay = false;
+		}
 	}
+	
 }

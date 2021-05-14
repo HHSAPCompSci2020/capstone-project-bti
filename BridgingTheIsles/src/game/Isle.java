@@ -15,7 +15,6 @@ public class Isle{
 	protected double startX;
 	protected double width;
 	private boolean shifting;
-	private boolean notShifting;
 	private double path;
 	protected int dir; //0 = going out of left frame; 1 = going to first position; 2 = going to second position 3 = not moving 4 = not moving first isle
 	private double goalX;
@@ -27,7 +26,6 @@ public class Isle{
 		width = Math.random() * 200+20; 
 		startX = Math.random() * 250 + 60; 
 		shifting = false;
-		notShifting = false;
 		path = 0;
 		dir = 1;
 		goalX = 700;
@@ -47,12 +45,11 @@ public class Isle{
 		
 		if(dir == 2){
 			goalX = startX;
-			startX += 600;
+			startX = 1000;
 		}
 		
 		shifting = false;
 		this.dir = dir;
-		notShifting = false;
 		path = 0;
 	}
 	
@@ -86,31 +83,25 @@ public class Isle{
 	/**
 	 * Shifts the isle over when the player successfully makes it
 	 */
-	public void shift() {
+	public void shift(double path) {
 		shifting = true;
-	}
-	
-	public void doNotShift(double path) {
-		notShifting = true;
 		this.path = path;
 	}
+
 	
 	public void act() {
-		if (notShifting) {
+		if (shifting) {
 			path-=5;
 			if(path <= 0) {
-				notShifting = false;
-			}
+				startX -= 10;
+				if(dir == 1 && startX <= 60)
+					shifting = false;
+				else if (dir == 0 && startX <= -1000)
+					shifting = false;
+				else if (dir == 2 && startX <= goalX) {
+					shifting = false;
+				}
+			}	
 		}
-		else if (shifting) {
-			startX -= 10;
-			if(dir == 1 && startX <= 60)
-				shifting = false;
-			else if (dir == 0 && startX <= -1000)
-				shifting = false;
-			else if (dir == 2 && startX <= goalX) {
-				shifting = false;
-			}
-		}	
 	}
 }
