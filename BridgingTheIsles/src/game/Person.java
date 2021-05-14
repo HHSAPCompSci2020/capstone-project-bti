@@ -7,7 +7,7 @@ import processing.core.PApplet;
  * @author Kasturi Sinha
  * @author Samantha Sung
  * @author Riya Gupta
- * @version 5/13
+ * @version 5/14
 */
 public class Person {
 
@@ -16,6 +16,7 @@ public class Person {
 	private boolean walking;
 	private boolean dying;
 	private boolean shifting;
+	private boolean reviving;
 	private double endSpot;
 	private double shiftSpot;
 
@@ -28,6 +29,7 @@ public class Person {
 		walking = false;
 		dying = false;
 		shifting = false;
+		reviving = true;
 		endSpot = 0;
 		shiftSpot = 0;
 	}
@@ -43,6 +45,7 @@ public class Person {
 		walking = false;
 		dying = false;
 		shifting = false;
+		reviving = true;
 		endSpot = 0;
 		shiftSpot = 0;
 	}
@@ -87,24 +90,34 @@ public class Person {
 		dying = true;
 	}
 	
+	public void revive() {
+		reviving = true;
+	}
+	
 	/**
 	 * Determines if the person is walking, dying or shifting. 
 	 */
 	public void act() {
-		if(walking) {
-			x+= 5;
-			if (x >= endSpot) {
+		if (walking) {
+			x += 4;
+			if (x >= endSpot-4) {
 				walking = false;
 			}
 		}
 		else if (dying) {
-			y += 5;
-			if (y <= 0) 
+			y += 4;
+			if (y >= 671) {
+				if(reviving) {
+					x = 80;
+					y = 400;
+					reviving = false;
+				}
 				dying = false;
+			}
 		}
-		else if(shifting) {
+		else if (shifting) {
 			x-=10;
-			if (x <= shiftSpot)
+			if (x <= shiftSpot+10)
 				shifting = false;
 		}
 	}

@@ -7,7 +7,7 @@ import processing.core.PApplet;
  * Displays the game 
  * @author Samantha Sung
  * @author Kasturi Sinha
- * @version 5/13
+ * @version 5/14
  */
 public class GameScreen extends Screen {
 	
@@ -70,7 +70,7 @@ public class GameScreen extends Screen {
 		surface.text(("Lives left: " + Integer.toString(lives.lifeCount)), 40, 60, 70, 80);  // Text wraps within text box
 
 		if(surface.isPressed(KeyEvent.VK_SPACE)) {
-			bridge.startX = 58+isle1.width;
+			bridge.startX = 60+isle1.width;
 			bridge.build(5);
 		}
 	}
@@ -97,7 +97,7 @@ public class GameScreen extends Screen {
 			isle1 = isle2;
 			isle1.dir = 1;
 			isle1.shift(bridge.getEndCoordinate()-person.x);
-			isle2 = new Isle(2, 58+isle1.width);
+			isle2 = new Isle(2, 60+isle1.width);
 			isle2.shift(bridge.getEndCoordinate()-person.x);
 		}	
 		if (p == 0) {
@@ -105,9 +105,10 @@ public class GameScreen extends Screen {
 			person.loseLife();
 			lives.removeLife();
 			
-			if(lives.lifeCount > 0)
-				person = new Person(80, 400);
-				bridge = new OriginalBridge(isle1.startX+isle1.width);
+			if(lives.lifeCount > 0) {
+				bridge.revive();
+				person.revive();
+			}
 		}		
 	}
 	

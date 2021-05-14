@@ -17,6 +17,7 @@ public class OriginalBridge{
 	private double angle;
 	private boolean falling;
 	private boolean fallingAllTheWay;
+	private boolean reviving;
 	private double path;
 	
 	/**
@@ -28,6 +29,7 @@ public class OriginalBridge{
 		angle = Math.PI/2;
 		falling = false;
 		fallingAllTheWay = false;
+		reviving = false;
 		path = 0;
 	}
 	
@@ -41,6 +43,7 @@ public class OriginalBridge{
 		angle = Math.PI/2;
 		falling = false;
 		fallingAllTheWay = false;
+		reviving = false;
 		path = 0;
 	}
 	
@@ -49,8 +52,8 @@ public class OriginalBridge{
 	 * @param surface PApplet onto which the bridge will be drawn
 	 */
 	public void draw(PApplet surface) {
+		surface.stroke(102, 51, 0);
 		surface.strokeWeight(2);
-		surface.stroke(0, 0, 0);
 		surface.line((float)startX, 400, (float)(startX+Math.cos(angle)*length), (float)(400-Math.sin(angle)*length));
 	}
 	
@@ -85,6 +88,10 @@ public class OriginalBridge{
 	public void fallDown() {
 		fallingAllTheWay = true;
 	}
+	
+	public void revive() {
+		reviving = true;
+	}
 
 	/**
 	 * Determines what to do depending on whether the bridge is falling or fallingAllTheWay
@@ -93,8 +100,8 @@ public class OriginalBridge{
 		if (falling) {
 			if(angle > 0.04)
 				angle -= 0.04;
-			path -= 5;
-			if(path <=0) {
+			path -= 4;
+			if(path <= 4) {
 				if(!fallingAllTheWay) {
 					angle = Math.PI/2;
 					length = 0;
@@ -104,8 +111,14 @@ public class OriginalBridge{
 		}
 		else if (fallingAllTheWay) {
 			angle -= 0.04;
-			if (angle <= -Math.PI/2+0.04)
+			if (angle <= -Math.PI/2+0.04) {
+				if (reviving) {
+					angle = Math.PI/2;
+					length = 0;
+					reviving = false;
+				}
 				fallingAllTheWay = false;
+			}
 		}
 	}
 	

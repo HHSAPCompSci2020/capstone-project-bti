@@ -7,7 +7,7 @@ import processing.core.PApplet;
  * @author Kasturi Sinha
  * @author Samantha Sung
  * @author Riya Gupta
- * @version 5/13
+ * @version 5/14
  */
 
 public class Isle{
@@ -83,12 +83,12 @@ public class Isle{
 		surface.stroke(0, 0, 0);
 		surface.rect((float)startX, 400, (float)width, 150);
 		
-		surface.strokeWeight(4);
-		surface.stroke(230, 230, 250);
+		surface.strokeWeight(6);
+		surface.stroke(255, 0, 0);
 		surface.line((float)startX, 400f, (float)(startX + width), 400f);
-		surface.stroke(0, 255, 255);
+		surface.stroke(255, 102, 0);
 		surface.line((float)(middle - width / 3), 400f, (float)(middle + width / 3), 400f);
-		surface.stroke(34, 139, 34);
+		surface.stroke(0, 204, 0);
 		surface.line((float)(middle - width / 6) , 400f, (float)(middle + width / 6), 400f);
  
 	}
@@ -106,14 +106,14 @@ public class Isle{
 	 */
 	public void act() {
 		if (shifting) {
-			path-=5;
-			if(path <= 0) {
+			path-=4;
+			if(path <= 4) {
 				startX -= 10;
-				if(dir == 1 && startX <= 60)
+				if(dir == 1 && startX <= 70)
 					shifting = false;
-				else if (dir == 0 && startX <= -1000)
+				else if (dir == 0 && startX <= -800)
 					shifting = false;
-				else if (dir == 2 && startX <= goalX) {
+				else if (dir == 2 && startX <= goalX+10) {
 					shifting = false;
 				}
 			}	
