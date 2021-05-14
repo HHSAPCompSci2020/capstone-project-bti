@@ -17,7 +17,7 @@ import processing.core.PApplet;
 public class DrawingSurface extends PApplet implements ScreenSwitcher{
 	
 	/**
-	 * Ratio of the width & height of the screen to the active screen 
+	 * Ratio of the width and height of the screen to the active screen 
 	 */
 	public float ratioX, ratioY;
 	

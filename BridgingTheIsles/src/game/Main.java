@@ -12,7 +12,7 @@ import java.awt.*;
  * @author Kasturi Sinha
  * @author Samantha Sung
  * @author Riya Gupta
- * @version 1
+ * @version 5/10
 */
 public class Main extends JFrame{
 	

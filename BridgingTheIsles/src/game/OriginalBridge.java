@@ -75,7 +75,7 @@ public class OriginalBridge{
 	
 	/**
 	 * Displays the bridge falling
-	 * @param pass whether the bridge passes to next level
+	 * @param path path of the person so the bridge falls with it
 	 */
 	public void fall(double path) {
 		falling = true;
@@ -89,12 +89,15 @@ public class OriginalBridge{
 		fallingAllTheWay = true;
 	}
 	
+	/**
+	 * Sets reviving to true
+	 */
 	public void revive() {
 		reviving = true;
 	}
 
 	/**
-	 * Determines what to do depending on whether the bridge is falling or fallingAllTheWay
+	 * Determines what to do depending on whether the bridge is falling or falling all the way (reviving)
 	 */
 	public void act() {
 		if (falling) {

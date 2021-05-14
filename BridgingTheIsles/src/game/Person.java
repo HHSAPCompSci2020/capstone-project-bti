@@ -67,7 +67,7 @@ public class Person {
 	
 	/**
 	 * Person walks to the next Isle
-	 * @param endSpot where Person should stop walking
+	 * @param end where Person should stop walking
 	 */
 	public void walk(double end) {
 		endSpot = end;
@@ -90,12 +90,15 @@ public class Person {
 		dying = true;
 	}
 	
+	/**
+	 * Person revives back to its default location if it has more lives
+	 */
 	public void revive() {
 		reviving = true;
 	}
 	
 	/**
-	 * Determines if the person is walking, dying or shifting. 
+	 * Determines if the person is walking, dying (reviving), or shifting. 
 	 */
 	public void act() {
 		if (walking) {

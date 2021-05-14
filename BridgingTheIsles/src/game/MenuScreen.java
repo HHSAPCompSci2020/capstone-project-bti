@@ -15,7 +15,7 @@ public class MenuScreen extends Screen {
 
 	/**
 	 * Instantiates all of GameScreen's fields 
-	 * @param surface
+	 * @param surface PApplet onto which the menu will be drawn 
 	 */
 	public MenuScreen(DrawingSurface surface) {
 		super(800,600);

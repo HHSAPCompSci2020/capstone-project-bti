@@ -113,7 +113,6 @@ Credits:
    * Initial skeleton classes
    * Building the bridge
       * Includes variations like building an invisible bridge, etc.
-   * Calculating points & lives
    * Classes: OriginalBridge, PointSystem, LifeCounter
 * Kasturi: 
    * Updated README when necessary
@@ -127,7 +126,7 @@ Credits:
    * Help with UML Diagram
    * Create jar file and javadoc html documentation
    * Code classes allowing the basic game to function (the component’s movements)
-   * Classes: Person, OriginalBridge, Isle, DrawingSurface, PointSystem, LifeCounter
+   * Classes: Person, OriginalBridge, Isle, GameScreen, PointSystem, LifeCounter
    * Instructions for the game
 
 

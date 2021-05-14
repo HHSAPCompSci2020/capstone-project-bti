@@ -23,7 +23,7 @@ public class GameScreen extends Screen {
 	
 	/**
 	 * Instantiates all of GameScreen's fields 
-	 * @param surface
+	 * @param surface PApplet onto which the game will be drawn 
 	 */
 	public GameScreen(DrawingSurface surface) {
 		super(800,600);
