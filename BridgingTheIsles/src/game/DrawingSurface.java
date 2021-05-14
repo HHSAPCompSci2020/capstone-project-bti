@@ -8,8 +8,6 @@ import processing.core.PApplet;
  * Displays the instructions at the start of the game and any other button necessary during the game. 
  * Sets the background at the start of the game.
  * 
- * @author Kasturi Sinha
- * @author Samantha Sung
  * @author Riya Gupta
  * @version 5/13
 */

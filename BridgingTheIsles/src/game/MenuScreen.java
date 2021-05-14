@@ -4,8 +4,8 @@ import java.awt.Rectangle;
 
 /**
  * Displays the game 
+ * @author Riya Gupta
  * @author Samantha Sung
- * @author Kasturi Sinha
  * @version 5/14
  */
 public class MenuScreen extends Screen {

@@ -4,9 +4,7 @@ import processing.core.PApplet;
 /** 
  * Represents Person as he/she walks across OriginalBridge and Isle
  * 
- * @author Kasturi Sinha
  * @author Samantha Sung
- * @author Riya Gupta
  * @version 5/14
 */
 public class Person {

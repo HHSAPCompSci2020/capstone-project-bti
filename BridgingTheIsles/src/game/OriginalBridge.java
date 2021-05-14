@@ -5,9 +5,7 @@ import processing.core.PApplet;
  * Represents a straight, flat bridge. Vertically built by player when the space button is pressed and 
  * horizontally falls to connect the Person to the adjacent Isle
  * 
- * @author Kasturi Sinha
  * @author Samantha Sung
- * @author Riya Gupta
  * @version 5/13
 */
 public class OriginalBridge{

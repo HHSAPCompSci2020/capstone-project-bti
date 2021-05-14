@@ -2,7 +2,7 @@ package game;
 
 /**
  * Switches between screens
- * @author Samantha Sung
+ * @author Riya Gupta
  * @version 5/13
  *
  */

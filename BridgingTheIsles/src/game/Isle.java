@@ -6,7 +6,6 @@ import processing.core.PApplet;
  * 
  * @author Kasturi Sinha
  * @author Samantha Sung
- * @author Riya Gupta
  * @version 5/14
  */
 

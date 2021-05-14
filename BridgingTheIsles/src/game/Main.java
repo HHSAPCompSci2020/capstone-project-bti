@@ -7,8 +7,6 @@ import java.awt.*;
 /** 
  * Contains the main method, creates DrawingSurface
  * 
- * @author Kasturi Sinha
- * @author Samantha Sung
  * @author Riya Gupta
  * @version 5/10
 */
