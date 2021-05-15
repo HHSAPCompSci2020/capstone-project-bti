@@ -15,7 +15,7 @@ public class MenuScreen extends Screen {
 	private Rectangle button1, button2, button3;
 
 	/**
-	 * Instantiates all of GameScreen's fields 
+	 * Instantiates all of MenuScreen's fields, including the buttons 
 	 * @param surface PApplet onto which the menu will be drawn 
 	 */
 	public MenuScreen(DrawingSurface surface) {

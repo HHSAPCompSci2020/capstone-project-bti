@@ -132,6 +132,9 @@ public class GameScreen extends Screen {
 			if(lives.lifeCount > 0) {
 				bridge.revive();
 				person.revive();
+			} else {
+				surface.screens.add(new DeadScreen(surface, points.points));
+				surface.switchScreen(ScreenSwitcher.SCREEN5);
 			}
 		}		
 	}
