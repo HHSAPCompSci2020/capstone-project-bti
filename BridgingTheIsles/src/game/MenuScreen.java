@@ -6,6 +6,7 @@ import java.awt.Rectangle;
  * Displays the game 
  * @author Riya Gupta
  * @author Samantha Sung
+ * @author Kasturi Sinha
  * @version 5/14
  */
 public class MenuScreen extends Screen {
@@ -60,10 +61,10 @@ public class MenuScreen extends Screen {
 				+ "				 \n5. The closer you get to the middle of the isle, the more points you receive\r\n"
 				+ "				 \n6. Every time you get 20 more points, you receive another life";
 
-		surface.text(instructions, 10, 20, 800, 600);
-		
+		surface.text(instructions, 10, 20, 800, 600);		
 		surface.popStyle();
 	}
+	
 	/**
 	 * Switches screen when mouse is pressed
 	 */
@@ -71,11 +72,9 @@ public class MenuScreen extends Screen {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (button1.contains(p)) {
 			surface.switchScreen(ScreenSwitcher.SCREEN2);
-		}	
-		else if (button2.contains(p)) {
+		}	else if (button2.contains(p)) {
 			surface.switchScreen(ScreenSwitcher.SCREEN3);
-		}
-		else if (button3.contains(p)) {
+		}	else if (button3.contains(p)) {
 			surface.switchScreen(ScreenSwitcher.SCREEN4);
 		}
 			

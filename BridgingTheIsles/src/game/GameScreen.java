@@ -12,19 +12,15 @@ import processing.core.PApplet;
  * @version 5/14
  */
 public class GameScreen extends Screen {
-	
-	
+		
 	private DrawingSurface surface;
 	private Person person;
 	private OriginalBridge bridge;
-	private Isle isle1;
-	private Isle isle2;
+	private Isle isle1, isle2;
 	private Isle tempIsle;
 	private PointSystem points;
 	private LifeCounter lives;
-	
-	private Rectangle restart;
-	private Rectangle backToMenu; 
+	private Rectangle restart, backToMenu; 
 	
 	/**
 	 * Instantiates all of GameScreen's fields 
@@ -45,8 +41,6 @@ public class GameScreen extends Screen {
 		restart = new Rectangle(580, 150, 180, 40);
 		backToMenu = new Rectangle(580, 200, 180, 40); //come back later
 	}
-	
-	
 	
 	/**
 	 * Sets up the game in the beginning 
