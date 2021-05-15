@@ -47,7 +47,7 @@ public class MenuScreen extends Screen {
 		
 		surface.text(str, button1.x+button1.width/2-w/2, button1.y+button1.height/2);
 		surface.text(str2, button2.x+button2.width/2-w2/2, button2.y+button2.height/2);
-		surface.text(str3, button3.x+button2.width/2-w3/2, button3.y+button3.height/2);
+		surface.text(str3, button3.x+button3.width/2-w3/2, button3.y+button3.height/2);
 		
 		//Print instructions
 		String instructions = "Instructions:\r\n"
@@ -73,7 +73,7 @@ public class MenuScreen extends Screen {
 			surface.switchScreen(ScreenSwitcher.SCREEN3);
 		}
 		else if (button3.contains(p)) {
-			surface.switchScreen(ScreenSwitcher.SCREEN3);
+			surface.switchScreen(ScreenSwitcher.SCREEN4);
 		}
 			
 	}

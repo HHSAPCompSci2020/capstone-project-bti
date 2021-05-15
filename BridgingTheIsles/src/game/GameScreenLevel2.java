@@ -14,7 +14,7 @@ public class GameScreenLevel2 extends Screen {
 	
 	private DrawingSurface surface;
 	private Person person;
-	private OriginalBridge bridge;
+	private InvisibleBridge bridge;
 	private Isle isle1;
 	private Isle isle2;
 	private Isle tempIsle;
@@ -31,7 +31,7 @@ public class GameScreenLevel2 extends Screen {
 		
 		person = new Person(80, 400);
 		isle1 = new Isle(4, 60);
-		bridge = new OriginalBridge(isle1.startX+isle1.width);
+		bridge = new InvisibleBridge(isle1.startX+isle1.width);
 		isle2 = new Isle(3, isle1.startX+isle1.width);
 		tempIsle = isle1;
 		points = new PointSystem();
