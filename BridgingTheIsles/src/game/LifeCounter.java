@@ -28,6 +28,8 @@ public class LifeCounter {
 	 * Subtracts one life (this is when the player dies)
 	 */
 	public void removeLife() {
-		lifeCount--;
+		if (lifeCount > 0) {
+			lifeCount--;
+		}
 	}
 }

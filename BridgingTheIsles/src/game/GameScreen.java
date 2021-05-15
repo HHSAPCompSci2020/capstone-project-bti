@@ -1,4 +1,6 @@
 package game;
+import java.awt.Point;
+import java.awt.Rectangle;
 import java.awt.event.*;
 import java.util.ArrayList;
 import processing.core.PApplet;
@@ -21,6 +23,8 @@ public class GameScreen extends Screen {
 	private PointSystem points;
 	private LifeCounter lives;
 	
+	private Rectangle restart;
+	
 	/**
 	 * Instantiates all of GameScreen's fields 
 	 * @param surface PApplet onto which the game will be drawn 
@@ -36,6 +40,8 @@ public class GameScreen extends Screen {
 		tempIsle = isle1;
 		points = new PointSystem();
 		lives = new LifeCounter();
+		
+		restart = new Rectangle(580, 150, 180, 50);
 	}
 	
 	
@@ -79,6 +85,14 @@ public class GameScreen extends Screen {
 			bridge.startX = isle1.startX+isle1.width;
 			bridge.build(5);
 		}
+		
+		surface.fill(255, 255, 255);
+		surface.rect(restart.x, restart.y, restart.width, restart.height, 10, 10, 10, 10);
+		surface.fill(50);
+		surface.textSize(20);
+		String str = "Restart";
+		float w = surface.textWidth(str);
+		surface.text(str, restart.x + restart.width / 2 - w / 2, restart.y+restart.height/2);
 	}
 
 	/**
@@ -116,6 +130,14 @@ public class GameScreen extends Screen {
 				person.revive();
 			}
 		}		
+	}
+	
+	public void mousePressed() {
+		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
+		if (restart.contains(p)) {
+			surface.screens.set(1, new GameScreen(surface));
+			surface.switchScreen(ScreenSwitcher.SCREEN2);
+		}	
 	}
 	
 }

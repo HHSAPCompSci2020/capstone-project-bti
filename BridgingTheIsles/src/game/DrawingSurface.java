@@ -21,7 +21,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher{
 	
 	private ArrayList<Integer> keys;
 	private Screen activeScreen;
-	private ArrayList<Screen> screens;
+	protected ArrayList<Screen> screens;
 	
 	/**
 	 * Instantiates all the objects of the game
