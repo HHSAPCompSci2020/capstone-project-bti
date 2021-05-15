@@ -24,6 +24,7 @@ public class GameScreen extends Screen {
 	private LifeCounter lives;
 	
 	private Rectangle restart;
+	private Rectangle backToMenu; 
 	
 	/**
 	 * Instantiates all of GameScreen's fields 
@@ -41,7 +42,8 @@ public class GameScreen extends Screen {
 		points = new PointSystem();
 		lives = new LifeCounter();
 		
-		restart = new Rectangle(580, 150, 180, 50);
+		restart = new Rectangle(580, 150, 180, 40);
+		backToMenu = new Rectangle(580, 200, 180, 40); //come back later
 	}
 	
 	
@@ -92,7 +94,15 @@ public class GameScreen extends Screen {
 		surface.textSize(20);
 		String str = "Restart";
 		float w = surface.textWidth(str);
-		surface.text(str, restart.x + restart.width / 2 - w / 2, restart.y+restart.height/2);
+		surface.text(str, restart.x + restart.width / 2 - w / 2, restart.y + restart.height / 2 + 5);
+		
+		surface.fill(255, 255, 255);
+		surface.rect(backToMenu.x, backToMenu.y, backToMenu.width, backToMenu.height, 10, 10, 10, 10);
+		surface.fill(50);
+		surface.textSize(20);
+		String str2 = "Back to Menu";
+		float w1 = surface.textWidth(str2);
+		surface.text(str2, backToMenu.x + backToMenu.width / 2 - w1 / 2, backToMenu.y + backToMenu.height/2 + 5);
 	}
 
 	/**
@@ -137,7 +147,10 @@ public class GameScreen extends Screen {
 		if (restart.contains(p)) {
 			surface.screens.set(1, new GameScreen(surface));
 			surface.switchScreen(ScreenSwitcher.SCREEN2);
-		}	
+		} else if (backToMenu.contains(p)) {
+			//surface.screens.set(0, new MenuScreen(surface));
+			surface.switchScreen(ScreenSwitcher.SCREEN1);
+		}
 	}
 	
 }
