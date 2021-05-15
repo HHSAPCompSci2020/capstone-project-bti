@@ -32,12 +32,12 @@ public class MenuScreen extends Screen {
 		surface.pushStyle();	
 		surface.background(255,255,255);
 		
+		surface.fill(255);
 		surface.rect(button1.x, button1.y, button1.width, button1.height, 10, 10, 10, 10);
 		surface.rect(button2.x, button2.y, button2.width, button2.height, 10, 10, 10, 10);
 		surface.rect(button3.x, button3.y, button3.width, button3.height, 10, 10, 10, 10);
 		
 		surface.fill(0);
-		
 		String str = "Level 1";
 		float w = surface.textWidth(str);
 		String str2 = "Level 2";
@@ -45,6 +45,8 @@ public class MenuScreen extends Screen {
 		String str3 = "Level 3";
 		float w3 = surface.textWidth(str3);
 		
+		surface.textSize(15);
+		surface.textLeading(11);
 		surface.text(str, button1.x+button1.width/2-w/2, button1.y+button1.height/2);
 		surface.text(str2, button2.x+button2.width/2-w2/2, button2.y+button2.height/2);
 		surface.text(str3, button3.x+button3.width/2-w3/2, button3.y+button3.height/2);
@@ -57,7 +59,8 @@ public class MenuScreen extends Screen {
 				+ "				 \n4. The bridge falls, and the end point determines if you succeed\r\n"
 				+ "				 \n5. The closer you get to the middle of the isle, the more points you receive\r\n"
 				+ "				 \n6. Every time you get 20 more points, you receive another life";
-		surface.text(instructions, 10, 20);
+
+		surface.text(instructions, 10, 20, 800, 600);
 		
 		surface.popStyle();
 	}
