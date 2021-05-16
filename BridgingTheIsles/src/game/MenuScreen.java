@@ -55,9 +55,9 @@ public class MenuScreen extends Screen {
 		//Print instructions
 		String instructions = "Instructions:\r\n"
 				+ "				 \n1. You are on a deserted isle\r\n"
-				+ "				 \n2. Press on the space button for a bridge to continue to get built in the vertical direction.\r\n"
+				+ "				 \n2. Press on the space button for a bridge to build in the vertical direction.\r\n"
 				+ " 			 \n   The Invisible Bridge will not be shown while built; The Speeding Bridge builds faster the longer you press\r\n"
-				+ "				 \n3. Release once you think the bridge is the correct length to let the bridge fall and connect the two islands\r\n"
+				+ "				 \n3. Release once you think the bridge is the correct length to connect the two islands\r\n"
 				+ "				 \n4. The bridge falls, and the end point determines if you succeed\r\n"
 				+ "				 \n5. The closer you get to the middle of the isle, the more points you receive\r\n"
 				+ "				 \n6. Every time you get 20 more points, you receive another life";
