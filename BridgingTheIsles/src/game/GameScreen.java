@@ -46,7 +46,7 @@ public class GameScreen extends Screen {
 		lives = new LifeCounter();
 		
 		restart = new Rectangle(580, 150, 180, 40);
-		backToMenu = new Rectangle(580, 200, 180, 40); //come back later
+		backToMenu = new Rectangle(580, 200, 180, 40); 
 	}
 	
 	/**
@@ -141,7 +141,11 @@ public class GameScreen extends Screen {
 				person.revive();
 			} 
 			else {
-				surface.screens.add(new DeadScreen(surface, points.points, level));
+				if (surface.screens.size() == 4) {
+					surface.screens.add(new DeadScreen(surface, points.points, level));
+				} else {
+					surface.screens.set(4, new DeadScreen(surface, points.points, level));
+				}
 				surface.switchScreen(ScreenSwitcher.SCREEN5);
 			}
 		}		

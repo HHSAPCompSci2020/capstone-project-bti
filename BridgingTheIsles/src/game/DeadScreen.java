@@ -56,7 +56,6 @@ public class DeadScreen extends Screen {
 		surface.text(str2, backToMenu.x+backToMenu.width/2-w2/2, backToMenu.y+backToMenu.height/2);
 		surface.text(str3, exit.x+exit.width/2-w3/2, exit.y+exit.height/2);
 		
-		//Print instructions
 		String pointsEarned = "Points Earned: " + points;
 		surface.text(pointsEarned, 10, 20, 800, 600);		
 		surface.popStyle();
@@ -68,8 +67,8 @@ public class DeadScreen extends Screen {
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (restartGame.contains(p)) {
-			surface.screens.set(1, new GameScreen(surface, level)); //edit this when it works out 
-			surface.switchScreen(ScreenSwitcher.SCREEN2);
+			surface.screens.set(level, new GameScreen(surface, level)); //edit this when it works out 
+			surface.switchScreen(level);
 		}	else if (backToMenu.contains(p)) {
 			surface.switchScreen(ScreenSwitcher.SCREEN1);
 		}	else if (exit.contains(p)) {
