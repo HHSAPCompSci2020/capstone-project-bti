@@ -57,7 +57,7 @@ public class DeadScreen extends Screen {
 		surface.text(str3, exit.x+exit.width/2-w3/2, exit.y+exit.height/2);
 		
 		//Print instructions
-		String pointsEarned = "Points Earned:" + points;
+		String pointsEarned = "Points Earned: " + points;
 		surface.text(pointsEarned, 10, 20, 800, 600);		
 		surface.popStyle();
 	}

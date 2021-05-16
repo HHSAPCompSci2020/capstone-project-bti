@@ -62,7 +62,7 @@ public class GameScreen extends Screen {
 	public void draw() {
 
 		surface.background(102, 255, 255);
-		surface.fill(0, 0, 255);
+		surface.fill(0, 0, 255); //water
 		surface.rect(0, 500, 800, 500);
 		
 		isle1.draw(surface);
@@ -89,7 +89,7 @@ public class GameScreen extends Screen {
 			bridge.build(5);
 		}
 		
-		surface.fill(255, 255, 255);
+		surface.fill(204, 255, 255);
 		surface.rect(restart.x, restart.y, restart.width, restart.height, 10, 10, 10, 10);
 		surface.fill(50);
 		surface.textSize(20);
@@ -97,7 +97,7 @@ public class GameScreen extends Screen {
 		float w = surface.textWidth(str);
 		surface.text(str, restart.x + restart.width / 2 - w / 2, restart.y + restart.height / 2 + 5);
 		
-		surface.fill(255, 255, 255);
+		surface.fill(204, 255, 255);
 		surface.rect(backToMenu.x, backToMenu.y, backToMenu.width, backToMenu.height, 10, 10, 10, 10);
 		surface.fill(50);
 		surface.textSize(20);

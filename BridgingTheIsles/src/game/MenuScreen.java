@@ -31,9 +31,9 @@ public class MenuScreen extends Screen {
 	 */
 	public void draw() {
 		surface.pushStyle();	
-		surface.background(255,255,255);
+		surface.background(204, 255, 255);
 		
-		surface.fill(255);
+		surface.fill(102, 255, 255);
 		surface.rect(button1.x, button1.y, button1.width, button1.height, 10, 10, 10, 10);
 		surface.rect(button2.x, button2.y, button2.width, button2.height, 10, 10, 10, 10);
 		surface.rect(button3.x, button3.y, button3.width, button3.height, 10, 10, 10, 10);
@@ -64,6 +64,7 @@ public class MenuScreen extends Screen {
 
 		surface.text(instructions, 10, 70, 800, 600);
 		
+		surface.fill(204, 51, 255);
 		surface.textSize(30);
 		surface.text("Bridging The Isles", 10, 35);
 		
