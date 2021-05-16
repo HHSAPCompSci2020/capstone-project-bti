@@ -19,20 +19,6 @@ public class Person {
 	private double shiftSpot;
 
 	/**
-	 * Initializes the coordinates of the Person and its other attributes
-	 */
-	public Person() {
-		x = 80;
-		y = 400;
-		walking = false;
-		dying = false;
-		shifting = false;
-		reviving = true;
-		endSpot = 0;
-		shiftSpot = 0;
-	}
-	
-	/**
 	 * Initializes the coordinates of the Person and other attributes
 	 * @param x the x-coordinate to which the Person should be instantiated 
 	 * @param y the y-coordinate to which the Person should be instantiated 

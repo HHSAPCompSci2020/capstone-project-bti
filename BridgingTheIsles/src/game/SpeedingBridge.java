@@ -11,14 +11,7 @@ import processing.core.PApplet;
 public class SpeedingBridge extends OriginalBridge {
 
 	private double i = 0;
-	
-	/**
-	 * Initializes the starting x-coordinate, length, angle, and movement variables of the bridge to pre-set values
-	 */
-	public SpeedingBridge() {
-		super();
-	}
-	
+
 	/**
 	 * Initializes the starting x-coordinate, length, angle, and movement variables of the bridge
 	 * @param start the starting x-coordinate
@@ -33,7 +26,7 @@ public class SpeedingBridge extends OriginalBridge {
 	 */
 	public void build(int n) {
 		length+=n+i;
-		i+=0.2;
+		i+=0.5;
 	}
 	
 }

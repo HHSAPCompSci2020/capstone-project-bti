@@ -7,7 +7,7 @@ import java.awt.Rectangle;
  * @author Riya Gupta
  * @author Samantha Sung
  * @author Kasturi Sinha
- * @version 5/14
+ * @version 5/15
  */
 public class MenuScreen extends Screen {
 
@@ -21,9 +21,9 @@ public class MenuScreen extends Screen {
 	public MenuScreen(DrawingSurface surface) {
 		super(800,600);
 		this.surface = surface;
-		button1 = new Rectangle(800/2-100,600/2-80,200,100);
-		button2 = new Rectangle(800/2-100,600/2+30,200,100);
-		button3 = new Rectangle(800/2-100,600/2+140,200,100);
+		button1 = new Rectangle(800/2-100,600/2-25,200,100);
+		button2 = new Rectangle(800/2-100,600/2+85,200,100);
+		button3 = new Rectangle(800/2-100,600/2+195,200,100);
 	}
 
 	/**
@@ -43,25 +43,30 @@ public class MenuScreen extends Screen {
 		float w = surface.textWidth(str);
 		String str2 = "Invisible Bridge";
 		float w2 = surface.textWidth(str2);
-		String str3 = "Speeding Up";
+		String str3 = "Speeding Bridge";
 		float w3 = surface.textWidth(str3);
 		
 		surface.textSize(15);
 		surface.textLeading(11);
-		surface.text(str, button1.x+button1.width/2-w/2, button1.y+button1.height/2);
-		surface.text(str2, button2.x+button2.width/2-w2/2, button2.y+button2.height/2);
-		surface.text(str3, button3.x+button3.width/2-w3/2, button3.y+button3.height/2);
+		surface.text(str, button1.x+button1.width/2-w/4, button1.y+button1.height/2);
+		surface.text(str2, button2.x+button2.width/2-w2/4, button2.y+button2.height/2);
+		surface.text(str3, button3.x+button3.width/2-w3/4, button3.y+button3.height/2);
 		
 		//Print instructions
 		String instructions = "Instructions:\r\n"
 				+ "				 \n1. You are on a deserted isle\r\n"
-				+ "				 \n2. Press on the space button for a bridge to continue to get built. It gets longer in the vertical direction.\r\n"
+				+ "				 \n2. Press on the space button for a bridge to continue to get built in the vertical direction.\r\n"
+				+ " 			 \n   The Invisible Bridge will not be shown while built; The Speeding Bridge builds faster the longer you press\r\n"
 				+ "				 \n3. Release once you think the bridge is the correct length to let the bridge fall and connect the two islands\r\n"
 				+ "				 \n4. The bridge falls, and the end point determines if you succeed\r\n"
 				+ "				 \n5. The closer you get to the middle of the isle, the more points you receive\r\n"
 				+ "				 \n6. Every time you get 20 more points, you receive another life";
 
-		surface.text(instructions, 10, 20, 800, 600);		
+		surface.text(instructions, 10, 70, 800, 600);
+		
+		surface.textSize(30);
+		surface.text("Bridging The Isles", 10, 35);
+		
 		surface.popStyle();
 	}
 	

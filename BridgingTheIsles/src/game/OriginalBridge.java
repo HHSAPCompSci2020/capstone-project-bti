@@ -14,22 +14,9 @@ public class OriginalBridge{
 	protected double length;
 	protected double angle;
 	protected boolean falling;
-	private boolean fallingAllTheWay;
+	protected boolean fallingAllTheWay;
 	private boolean reviving;
 	private double path;
-	
-	/**
-	 * Initializes the starting x-coordinate, length, angle, and movement variables of the bridge to pre-set values
-	 */
-	public OriginalBridge() {
-		startX = 40;
-		length = 0;
-		angle = Math.PI/2;
-		falling = false;
-		fallingAllTheWay = false;
-		reviving = false;
-		path = 0;
-	}
 	
 	/**
 	 * Initializes the starting x-coordinate, length, angle, and movement variables of the bridge to pre-set values
@@ -46,7 +33,7 @@ public class OriginalBridge{
 	}
 	
 	/**
-	 * Draws the bridge 
+	 * Draws the bridge e
 	 * @param surface PApplet onto which the bridge will be drawn
 	 */
 	public void draw(PApplet surface) {

@@ -11,13 +11,6 @@ import processing.core.PApplet;
 public class InvisibleBridge extends OriginalBridge {
 
 	/**
-	 * Initializes the starting x-coordinate, length, angle, and movement variables of the bridge to pre-set values
-	 */
-	public InvisibleBridge() {
-		super();
-	}
-	
-	/**
 	 * Initializes the starting x-coordinate, length, angle, and movement variables of the bridge
 	 * @param start the starting x-coordinate
 	 */
@@ -32,7 +25,7 @@ public class InvisibleBridge extends OriginalBridge {
 	public void draw(PApplet surface) {
 		surface.stroke(102, 51, 0);
 		surface.strokeWeight(2);
-		if(super.falling) {
+		if(super.falling || super.fallingAllTheWay) {
 			surface.line((float)startX, 400, (float)(startX+Math.cos(angle)*length), (float)(400-Math.sin(super.angle)*length));
 		}
 		

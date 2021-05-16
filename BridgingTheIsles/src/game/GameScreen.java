@@ -21,6 +21,7 @@ public class GameScreen extends Screen {
 	private PointSystem points;
 	private LifeCounter lives;
 	private Rectangle restart, backToMenu; 
+	private int level;
 	
 	/**
 	 * Instantiates all of GameScreen's fields 
@@ -29,6 +30,7 @@ public class GameScreen extends Screen {
 	public GameScreen(DrawingSurface surface, int level) {
 		super(800,600);
 		this.surface = surface;
+		this.level = level;
 		
 		person = new Person(80, 400);
 		isle1 = new Isle(4, 60);
@@ -137,8 +139,9 @@ public class GameScreen extends Screen {
 			if(lives.lifeCount > 0) {
 				bridge.revive();
 				person.revive();
-			} else {
-				surface.screens.add(new DeadScreen(surface, points.points));
+			} 
+			else {
+				surface.screens.add(new DeadScreen(surface, points.points, level));
 				surface.switchScreen(ScreenSwitcher.SCREEN5);
 			}
 		}		
@@ -147,10 +150,9 @@ public class GameScreen extends Screen {
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (restart.contains(p)) {
-			surface.screens.set(1, new GameScreen(surface, 1));
+			surface.screens.set(1, new GameScreen(surface, level));
 			surface.switchScreen(ScreenSwitcher.SCREEN2);
 		} else if (backToMenu.contains(p)) {
-			//surface.screens.set(0, new MenuScreen(surface));
 			surface.switchScreen(ScreenSwitcher.SCREEN1);
 		}
 	}
