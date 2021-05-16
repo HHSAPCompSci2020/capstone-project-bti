@@ -33,7 +33,7 @@ public class Person {
 	}
 	
 	/**
-	 * Initializes the coordinates of the Person 
+	 * Initializes the coordinates of the Person and other attributes
 	 * @param x the x-coordinate to which the Person should be instantiated 
 	 * @param y the y-coordinate to which the Person should be instantiated 
 	 */

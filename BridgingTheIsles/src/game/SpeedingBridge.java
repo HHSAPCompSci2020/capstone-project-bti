@@ -8,12 +8,14 @@ import processing.core.PApplet;
  * @author Samantha Sung
  * @version 5/15
 */
-public class InvisibleBridge extends OriginalBridge {
+public class SpeedingBridge extends OriginalBridge {
 
+	private double i = 0;
+	
 	/**
 	 * Initializes the starting x-coordinate, length, angle, and movement variables of the bridge to pre-set values
 	 */
-	public InvisibleBridge() {
+	public SpeedingBridge() {
 		super();
 	}
 	
@@ -21,21 +23,17 @@ public class InvisibleBridge extends OriginalBridge {
 	 * Initializes the starting x-coordinate, length, angle, and movement variables of the bridge
 	 * @param start the starting x-coordinate
 	 */
-	public InvisibleBridge(double start) {
+	public SpeedingBridge(double start) {
 		super(start);
 	}
 	
 	/**
-	 * Draws the bridge. This will only happen after the player has stopped pressing Space.
-	 * @param surface PApplet onto which the bridge will be drawn
+	 * Builds the bridge increasingly faster
+	 * @param n initial increment for the bridge length 
 	 */
-	public void draw(PApplet surface) {
-		surface.stroke(102, 51, 0);
-		surface.strokeWeight(2);
-		if(super.falling) {
-			surface.line((float)startX, 400, (float)(startX+Math.cos(angle)*length), (float)(400-Math.sin(super.angle)*length));
-		}
-		
+	public void build(int n) {
+		length+=n+i;
+		i+=0.2;
 	}
 	
 }

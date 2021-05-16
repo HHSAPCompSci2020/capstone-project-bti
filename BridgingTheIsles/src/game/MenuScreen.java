@@ -39,11 +39,11 @@ public class MenuScreen extends Screen {
 		surface.rect(button3.x, button3.y, button3.width, button3.height, 10, 10, 10, 10);
 		
 		surface.fill(0);
-		String str = "Level 1";
+		String str = "Original";
 		float w = surface.textWidth(str);
-		String str2 = "Level 2";
+		String str2 = "Invisible Bridge";
 		float w2 = surface.textWidth(str2);
-		String str3 = "Level 3";
+		String str3 = "Speeding Up";
 		float w3 = surface.textWidth(str3);
 		
 		surface.textSize(15);

@@ -16,8 +16,8 @@ public class PointSystem {
 		points = 0;
 	}
 	
-	/**Adds n number of points to the total
-	 *
+	/**
+	 * Adds n number of points to the total
 	 * @param n Number of points earned
 	 */
 	public void incrementPoints(int n) {

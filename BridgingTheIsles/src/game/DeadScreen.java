@@ -65,7 +65,7 @@ public class DeadScreen extends Screen {
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (restartGame.contains(p)) {
-			surface.screens.set(1, new GameScreen(surface)); //edit this when it works out 
+			surface.screens.set(1, new GameScreen(surface, 1)); //edit this when it works out 
 			surface.switchScreen(ScreenSwitcher.SCREEN2);
 		}	else if (backToMenu.contains(p)) {
 			surface.switchScreen(ScreenSwitcher.SCREEN1);

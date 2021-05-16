@@ -26,13 +26,18 @@ public class GameScreen extends Screen {
 	 * Instantiates all of GameScreen's fields 
 	 * @param surface PApplet onto which the game will be drawn 
 	 */
-	public GameScreen(DrawingSurface surface) {
+	public GameScreen(DrawingSurface surface, int level) {
 		super(800,600);
 		this.surface = surface;
 		
 		person = new Person(80, 400);
 		isle1 = new Isle(4, 60);
-		bridge = new OriginalBridge(isle1.startX+isle1.width);
+		if(level == 1)
+			bridge = new OriginalBridge(isle1.startX+isle1.width);
+		if(level == 2)
+			bridge = new InvisibleBridge(isle1.startX+isle1.width);
+		if(level == 3)
+			bridge = new SpeedingBridge(isle1.startX+isle1.width);
 		isle2 = new Isle(3, isle1.startX+isle1.width);
 		tempIsle = isle1;
 		points = new PointSystem();
@@ -142,7 +147,7 @@ public class GameScreen extends Screen {
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (restart.contains(p)) {
-			surface.screens.set(1, new GameScreen(surface));
+			surface.screens.set(1, new GameScreen(surface, 1));
 			surface.switchScreen(ScreenSwitcher.SCREEN2);
 		} else if (backToMenu.contains(p)) {
 			//surface.screens.set(0, new MenuScreen(surface));

@@ -12,14 +12,14 @@ public class OriginalBridge{
 
 	protected double startX;
 	protected double length;
-	private double angle;
-	private boolean falling;
+	protected double angle;
+	protected boolean falling;
 	private boolean fallingAllTheWay;
 	private boolean reviving;
 	private double path;
 	
 	/**
-	 * Initializes the starting x-coordinate, length and angle of the bridge to pre-set values
+	 * Initializes the starting x-coordinate, length, angle, and movement variables of the bridge to pre-set values
 	 */
 	public OriginalBridge() {
 		startX = 40;
@@ -32,7 +32,7 @@ public class OriginalBridge{
 	}
 	
 	/**
-	 * Initializes the starting x-coordinate, length and angle of the bridge
+	 * Initializes the starting x-coordinate, length, angle, and movement variables of the bridge to pre-set values
 	 * @param start the starting x-coordinate
 	 */
 	public OriginalBridge(double start) {

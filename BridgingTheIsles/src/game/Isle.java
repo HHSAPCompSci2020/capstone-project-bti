@@ -20,7 +20,7 @@ public class Isle{
 	private double middle; 
 
 	/**
-	 * Instantiates the width and starting x-coordinate of the island
+	 * Instantiates the width, starting x-coordinate, and other vars of the isle
 	 */
 	public Isle() {
 		width = Math.random() * 200 + 20; 
@@ -33,7 +33,7 @@ public class Isle{
 	}
 
 	/**
-	 * Instantiates the width and starting x-coordinate of Isle according to parameters
+	 * Instantiates the width, starting x-coordinate, and other vars of Isle according to parameters
 	 * @param dir the direction the island will go (0 = going out of left frame, 1 = going to first position, 2 = going to second position, 3 = not moving, 4 = not moving first isle
 	 * @param bounds the most left spot the island can be
 	 */
