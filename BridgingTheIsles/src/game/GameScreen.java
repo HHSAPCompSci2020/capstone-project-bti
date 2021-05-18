@@ -22,6 +22,7 @@ public class GameScreen extends Screen {
 	private LifeCounter lives;
 	private Rectangle restart, backToMenu; 
 	private int level;
+	private boolean space;
 	
 	/**
 	 * Instantiates all of GameScreen's fields 
@@ -31,14 +32,15 @@ public class GameScreen extends Screen {
 		super(800,600);
 		this.surface = surface;
 		this.level = level;
+		space = false;
 		
 		person = new Person(80, 400);
 		isle1 = new Isle(4, 60);
 		if(level == 1)
 			bridge = new OriginalBridge(isle1.startX+isle1.width);
-		if(level == 2)
+		else if(level == 2)
 			bridge = new InvisibleBridge(isle1.startX+isle1.width);
-		if(level == 3)
+		else if(level == 3)
 			bridge = new SpeedingBridge(isle1.startX+isle1.width);
 		isle2 = new Isle(3, isle1.startX+isle1.width);
 		tempIsle = isle1;
@@ -87,6 +89,7 @@ public class GameScreen extends Screen {
 		if(surface.isPressed(KeyEvent.VK_SPACE)) {
 			bridge.startX = isle1.startX+isle1.width;
 			bridge.build(5);
+			space = true;
 		}
 		
 		surface.fill(204, 255, 255);
@@ -110,45 +113,48 @@ public class GameScreen extends Screen {
 	 * Acts according to whether the bridge falls on the island
 	 */
 	public void keyReleased() {
-		int p = isle2.detectBridge(bridge.getEndCoordinate());
-		int previous = points.points;
-		points.incrementPoints(p);
-		int n = points.points/20;
-		if (previous < 20*n && points.points >= 20*n) 
-			lives.addLife();
-		
-		person.walk(bridge.getEndCoordinate());
-		bridge.fall(bridge.getEndCoordinate()-person.x);
+		if(space) {
+			int p = isle2.detectBridge(bridge.getEndCoordinate());
+			int previous = points.points;
+			points.incrementPoints(p);
+			int n = points.points/20;
+			if (previous < 20*n && points.points >= 20*n) 
+				lives.addLife();
 			
-		if (p > 0) {
-			person.shift(bridge.getEndCoordinate()-isle2.startX);
-			tempIsle = isle1;
-			tempIsle.dir = 0;
-			tempIsle.shift(bridge.getEndCoordinate()-person.x);
-			isle1 = isle2;
-			isle1.dir = 1;
-			isle1.shift(bridge.getEndCoordinate()-person.x);
-			isle2 = new Isle(2, 60+isle1.width);
-			isle2.shift(bridge.getEndCoordinate()-person.x);
-		}	
-		if (p == 0) {
-			bridge.fallDown();
-			person.loseLife();
-			lives.removeLife();
-			
-			if(lives.lifeCount > 0) {
-				bridge.revive();
-				person.revive();
-			} 
-			else {
-				if (surface.screens.size() == 4) {
-					surface.screens.add(new DeadScreen(surface, points.points, level));
-				} else {
-					surface.screens.set(4, new DeadScreen(surface, points.points, level));
-				}
-				surface.switchScreen(ScreenSwitcher.SCREEN5);
+			person.walk(bridge.getEndCoordinate());
+			bridge.fall(bridge.getEndCoordinate()-person.x);
+				
+			if (p > 0) {
+				person.shift(bridge.getEndCoordinate()-isle2.startX);
+				tempIsle = isle1;
+				tempIsle.dir = 0;
+				tempIsle.shift(bridge.getEndCoordinate()-person.x);
+				isle1 = isle2;
+				isle1.dir = 1;
+				isle1.shift(bridge.getEndCoordinate()-person.x);
+				isle2 = new Isle(2, 60+isle1.width);
+				isle2.shift(bridge.getEndCoordinate()-person.x);
+			}	
+			if (p == 0) {
+				bridge.fallDown();
+				person.loseLife();
+				lives.removeLife();
+				
+				if(lives.lifeCount > 0) {
+					bridge.revive();
+					person.revive();
+				} 
+	//			else {
+	//				if (surface.screens.size() == 4) {
+	//					surface.screens.add(new DeadScreen(surface, points.points, level));
+	//				} else {
+	//					surface.screens.set(4, new DeadScreen(surface, points.points, level));
+	//				}
+	//				surface.switchScreen(ScreenSwitcher.SCREEN5);
+	//			}
 			}
-		}		
+		}
+		space = false;
 	}
 	
 	public void mousePressed() {

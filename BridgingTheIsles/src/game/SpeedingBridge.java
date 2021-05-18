@@ -6,7 +6,7 @@ import processing.core.PApplet;
  * horizontally falls to connect the Person to the adjacent Isle
  * 
  * @author Samantha Sung
- * @version 5/15
+ * @version 5/17
 */
 public class SpeedingBridge extends OriginalBridge {
 
@@ -26,7 +26,7 @@ public class SpeedingBridge extends OriginalBridge {
 	 */
 	public void build(int n) {
 		length+=n+i;
-		i+=0.5;
+		i+=0.3;
 	}
 	
 }

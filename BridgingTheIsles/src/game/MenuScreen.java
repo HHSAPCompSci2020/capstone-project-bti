@@ -7,7 +7,7 @@ import java.awt.Rectangle;
  * @author Riya Gupta
  * @author Samantha Sung
  * @author Kasturi Sinha
- * @version 5/15
+ * @version 5/17
  */
 public class MenuScreen extends Screen {
 
@@ -21,9 +21,9 @@ public class MenuScreen extends Screen {
 	public MenuScreen(DrawingSurface surface) {
 		super(800,600);
 		this.surface = surface;
-		button1 = new Rectangle(800/2-100,600/2-25,200,100);
-		button2 = new Rectangle(800/2-100,600/2+85,200,100);
-		button3 = new Rectangle(800/2-100,600/2+195,200,100);
+		button1 = new Rectangle(800/2-100,600/2-45,200,100);
+		button2 = new Rectangle(800/2-100,600/2+65,200,100);
+		button3 = new Rectangle(800/2-100,600/2+175,200,100);
 	}
 
 	/**
@@ -40,17 +40,14 @@ public class MenuScreen extends Screen {
 		
 		surface.fill(0);
 		String str = "Original";
-		float w = surface.textWidth(str);
 		String str2 = "Invisible Bridge";
-		float w2 = surface.textWidth(str2);
 		String str3 = "Speeding Bridge";
-		float w3 = surface.textWidth(str3);
 		
 		surface.textSize(15);
 		surface.textLeading(11);
-		surface.text(str, button1.x+button1.width/2-w/4, button1.y+button1.height/2);
-		surface.text(str2, button2.x+button2.width/2-w2/4, button2.y+button2.height/2);
-		surface.text(str3, button3.x+button3.width/2-w3/4, button3.y+button3.height/2);
+		surface.text(str, button1.x+button1.width/2-(float)115.48828/4, button1.y+button1.height/2);
+		surface.text(str2, button2.x+button2.width/2-(float)221.68945/4, button2.y+button2.height/2);
+		surface.text(str3, button3.x+button3.width/2-(float)235.3418/4, button3.y+button3.height/2);
 		
 		//Print instructions
 		String instructions = "Instructions:\r\n"
@@ -62,7 +59,7 @@ public class MenuScreen extends Screen {
 				+ "				 \n5. The closer you get to the middle of the isle, the more points you receive\r\n"
 				+ "				 \n6. Every time you get 20 more points, you receive another life";
 
-		surface.text(instructions, 10, 70, 800, 600);
+		surface.text(instructions, 10, 55, 800, 600);
 		
 		surface.fill(204, 51, 255);
 		surface.textSize(30);
@@ -77,11 +74,14 @@ public class MenuScreen extends Screen {
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (button1.contains(p)) {
+			surface.screens.set(1, new GameScreen(surface, 1));
 			surface.switchScreen(ScreenSwitcher.SCREEN2);
 		}	else if (button2.contains(p)) {
-			surface.switchScreen(ScreenSwitcher.SCREEN3);
+			surface.screens.set(1, new GameScreen(surface, 2));
+			surface.switchScreen(ScreenSwitcher.SCREEN2);
 		}	else if (button3.contains(p)) {
-			surface.switchScreen(ScreenSwitcher.SCREEN4);
+			surface.screens.set(1, new GameScreen(surface, 3));
+			surface.switchScreen(ScreenSwitcher.SCREEN2);
 		}
 			
 	}
