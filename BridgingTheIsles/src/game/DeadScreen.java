@@ -72,7 +72,7 @@ public class DeadScreen extends Screen {
 		}	else if (backToMenu.contains(p)) {
 			surface.switchScreen(ScreenSwitcher.SCREEN1);
 		}	else if (exit.contains(p)) {
-			surface.switchScreen(ScreenSwitcher.SCREEN4);
+			surface.switchScreen(ScreenSwitcher.SCREEN3);
 		}
 	}
 			

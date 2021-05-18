@@ -150,7 +150,7 @@ public class GameScreen extends Screen {
 	//				} else {
 	//					surface.screens.set(4, new DeadScreen(surface, points.points, level));
 	//				}
-	//				surface.switchScreen(ScreenSwitcher.SCREEN5);
+	//				surface.switchScreen(ScreenSwitcher.SCREEN4);
 	//			}
 			}
 		}
