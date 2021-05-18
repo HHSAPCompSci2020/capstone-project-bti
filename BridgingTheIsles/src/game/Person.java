@@ -12,18 +12,20 @@ public class Person {
 	protected double x;
 	protected double y;
 	private boolean walking;
-	private boolean dying;
+	protected boolean dying;
 	private boolean shifting;
 	private boolean reviving;
 	private double endSpot;
 	private double shiftSpot;
+	private LifeCounter lives;
 
 	/**
 	 * Initializes the coordinates of the Person and other attributes
 	 * @param x the x-coordinate to which the Person should be instantiated 
 	 * @param y the y-coordinate to which the Person should be instantiated 
 	 */
-	public Person(int x, int y) {
+	public Person(int x, int y, LifeCounter lives) {
+		this.lives = lives;
 		this.x = x;
 		this.y = y; 
 		walking = false;
@@ -84,7 +86,7 @@ public class Person {
 	/**
 	 * Determines if the person is walking, dying (reviving), or shifting. 
 	 */
-	public void act() {
+	public boolean act() {
 		if (walking) {
 			x += 4;
 			if (x >= endSpot-4) {
@@ -98,6 +100,9 @@ public class Person {
 					x = 80;
 					y = 400;
 					reviving = false;
+				} else if (lives.lifeCount == 0){
+					dying = true; 
+					return true; 
 				}
 				dying = false;
 			}
@@ -107,6 +112,8 @@ public class Person {
 			if (x <= shiftSpot+10)
 				shifting = false;
 		}
+		
+		return false;
 	}
 
 }

@@ -19,7 +19,7 @@ public class GameScreen extends Screen {
 	private Isle isle1, isle2;
 	private Isle tempIsle;
 	private PointSystem points;
-	private LifeCounter lives;
+	private LifeCounter lives; 
 	private Rectangle restart, backToMenu; 
 	private int level;
 	private boolean space;
@@ -37,7 +37,6 @@ public class GameScreen extends Screen {
 		this.level = level;
 		space = false;
 		
-		person = new Person(80, 400);
 		isle1 = new Isle(4, 60);
 		if(level == 1)
 			bridge = new OriginalBridge(isle1.startX+isle1.width);
@@ -49,6 +48,8 @@ public class GameScreen extends Screen {
 		tempIsle = isle1;
 		points = new PointSystem();
 		lives = new LifeCounter();
+		
+		person = new Person(80, 400, lives);
 		
 		restart = new Rectangle(580, 150, 180, 40);
 		backToMenu = new Rectangle(580, 200, 180, 40); 
@@ -142,12 +143,12 @@ public class GameScreen extends Screen {
 				bridge.fallDown();
 				person.loseLife();
 				lives.removeLife();
+				System.out.println(person.act());
 				
 				if(lives.lifeCount > 0) {
 					bridge.revive();
 					person.revive();
-				} 
-				else {
+				} else if (lives.lifeCount == 0 && person.act() == true){
 					if (surface.screens.size() == 4) {
 						surface.screens.add(new DeadScreen(surface, points.points, level, w));
 					} else {

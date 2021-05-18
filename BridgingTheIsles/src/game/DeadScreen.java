@@ -78,9 +78,6 @@ public class DeadScreen extends Screen {
 			//surface.switchScreen(ScreenSwitcher.SCREEN3);
 		}
 	}
-	
-	public void instantiateMain() {
-		
-	}
+
 			
 }
