@@ -15,13 +15,15 @@ public class DeadScreen extends Screen {
 	private Rectangle restartGame, backToMenu, exit;
 	private int points; 
 	private int level;
+	private Main w; 
 	
-	/**
+	/** 
 	 * Instantiates all of DeadScreen's fields, including the buttons
 	 * @param surface PApplet onto which the menu will be drawn 
 	 */
-	public DeadScreen(DrawingSurface surface, int points, int level) {
+	public DeadScreen(DrawingSurface surface, int points, int level, Main w) {
 		super(800,600);
+		this.w = w; 
 		this.points = points; 
 		this.surface = surface;
 		this.level = level;
@@ -67,13 +69,18 @@ public class DeadScreen extends Screen {
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (restartGame.contains(p)) {
-			surface.screens.set(level, new GameScreen(surface, level)); //edit this when it works out 
+			surface.screens.set(level, new GameScreen(surface, level, w)); //edit this when it works out 
 			surface.switchScreen(level);
 		}	else if (backToMenu.contains(p)) {
 			surface.switchScreen(ScreenSwitcher.SCREEN1);
 		}	else if (exit.contains(p)) {
-			surface.switchScreen(ScreenSwitcher.SCREEN3);
+			w.exit();
+			//surface.switchScreen(ScreenSwitcher.SCREEN3);
 		}
+	}
+	
+	public void instantiateMain() {
+		
 	}
 			
 }

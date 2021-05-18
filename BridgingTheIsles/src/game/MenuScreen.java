@@ -13,13 +13,15 @@ public class MenuScreen extends Screen {
 
 	private DrawingSurface surface;
 	private Rectangle button1, button2, button3;
-
+	private Main w;
+	
 	/**
 	 * Instantiates all of MenuScreen's fields, including the buttons 
 	 * @param surface PApplet onto which the menu will be drawn 
 	 */
-	public MenuScreen(DrawingSurface surface) {
+	public MenuScreen(DrawingSurface surface, Main w) {
 		super(800,600);
+		this.w = w;
 		this.surface = surface;
 		button1 = new Rectangle(800/2-100,600/2-45,200,100);
 		button2 = new Rectangle(800/2-100,600/2+65,200,100);
@@ -74,13 +76,13 @@ public class MenuScreen extends Screen {
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (button1.contains(p)) {
-			surface.screens.set(1, new GameScreen(surface, 1));
+			surface.screens.set(1, new GameScreen(surface, 1, w));
 			surface.switchScreen(ScreenSwitcher.SCREEN2);
 		}	else if (button2.contains(p)) {
-			surface.screens.set(1, new GameScreen(surface, 2));
+			surface.screens.set(1, new GameScreen(surface, 2, w));
 			surface.switchScreen(ScreenSwitcher.SCREEN2);
 		}	else if (button3.contains(p)) {
-			surface.screens.set(1, new GameScreen(surface, 3));
+			surface.screens.set(1, new GameScreen(surface, 3, w));
 			surface.switchScreen(ScreenSwitcher.SCREEN2);
 		}
 			

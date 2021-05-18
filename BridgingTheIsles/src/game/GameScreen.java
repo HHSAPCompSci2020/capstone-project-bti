@@ -23,13 +23,16 @@ public class GameScreen extends Screen {
 	private Rectangle restart, backToMenu; 
 	private int level;
 	private boolean space;
+	private Main w;
+
 	
 	/**
 	 * Instantiates all of GameScreen's fields 
 	 * @param surface PApplet onto which the game will be drawn 
 	 */
-	public GameScreen(DrawingSurface surface, int level) {
+	public GameScreen(DrawingSurface surface, int level, Main w) {
 		super(800,600);
+		this.w = w; 
 		this.surface = surface;
 		this.level = level;
 		space = false;
@@ -144,14 +147,14 @@ public class GameScreen extends Screen {
 					bridge.revive();
 					person.revive();
 				} 
-	//			else {
-	//				if (surface.screens.size() == 4) {
-	//					surface.screens.add(new DeadScreen(surface, points.points, level));
-	//				} else {
-	//					surface.screens.set(4, new DeadScreen(surface, points.points, level));
-	//				}
-	//				surface.switchScreen(ScreenSwitcher.SCREEN4);
-	//			}
+				else {
+					if (surface.screens.size() == 4) {
+						surface.screens.add(new DeadScreen(surface, points.points, level, w));
+					} else {
+						surface.screens.set(4, new DeadScreen(surface, points.points, level, w));
+					}
+					surface.switchScreen(ScreenSwitcher.SCREEN5);
+				}
 			}
 		}
 		space = false;
@@ -160,7 +163,7 @@ public class GameScreen extends Screen {
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (restart.contains(p)) {
-			surface.screens.set(1, new GameScreen(surface, level));
+			surface.screens.set(1, new GameScreen(surface, level, w));
 			surface.switchScreen(ScreenSwitcher.SCREEN2);
 		} else if (backToMenu.contains(p)) {
 			surface.switchScreen(ScreenSwitcher.SCREEN1);

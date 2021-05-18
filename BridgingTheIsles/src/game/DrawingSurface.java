@@ -18,7 +18,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher{
 	 * Ratio of the width and height of the screen to the active screen 
 	 */
 	public float ratioX, ratioY;
-	
+	private Main w; 
 	private ArrayList<Integer> keys;
 	private Screen activeScreen;
 	protected ArrayList<Screen> screens;
@@ -26,21 +26,22 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher{
 	/**
 	 * Instantiates all the objects of the game
 	 */
-	public DrawingSurface() {
+	public DrawingSurface(Main w) {
+		this.w = w;
 		screens = new ArrayList<Screen>();
 		
 		keys = new ArrayList<Integer>();
 		
-		MenuScreen screen1 = new MenuScreen(this);
+		MenuScreen screen1 = new MenuScreen(this, w);
 		screens.add(screen1);
 		
-		GameScreen screen2 = new GameScreen(this, 1);
+		GameScreen screen2 = new GameScreen(this, 1, w);
 		screens.add(screen2);
 		
-		GameScreen screen3 = new GameScreen(this, 2);
+		GameScreen screen3 = new GameScreen(this, 2, w);
 		screens.add(screen3);
 		
-		GameScreen screen4 = new GameScreen(this, 3);
+		GameScreen screen4 = new GameScreen(this, 3, w);
 		screens.add(screen4);
 		
 		activeScreen = screens.get(0);
@@ -114,11 +115,11 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher{
 	public Point actualCoordinatesToAssumed(Point actual) {
 		return new Point((int)(actual.getX()/ratioX) , (int)(actual.getY()/ratioY));
 	}
+
 	
 	@Override
 	public void switchScreen(int i) {
 		activeScreen = screens.get(i);
-		
 	}
 
 }
