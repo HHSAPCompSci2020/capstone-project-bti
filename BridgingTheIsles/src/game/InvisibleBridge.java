@@ -2,8 +2,8 @@ package game;
 import processing.core.PApplet;
 
 /** 
- * Represents a straight, flat bridge. Vertically built by player when the space button is pressed and 
- * horizontally falls to connect the Person to the adjacent Isle
+ * Represents a straight, invisible bridge. It is vertically built by the player when the space button is pressed and is invisible.
+ * The bridge shows up when it horizontally falls to connect the Person to the adjacent Isle
  * 
  * @author Samantha Sung
  * @version 5/15

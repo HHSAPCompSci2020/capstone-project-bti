@@ -1,9 +1,8 @@
 package game;
-import processing.core.PApplet;
 
 /** 
- * Represents a straight, flat bridge. Vertically built by player when the space button is pressed and 
- * horizontally falls to connect the Person to the adjacent Isle
+ * Represents a straight, speeding bridge. It is vertically built by player when the space button is pressed and gets built increasingly faster 
+ * The bridge horizontally falls to connect the Person to the adjacent Isle
  * 
  * @author Samantha Sung
  * @version 5/17
@@ -26,7 +25,7 @@ public class SpeedingBridge extends OriginalBridge {
 	 */
 	public void build(int n) {
 		length += n + i;
-		i += 0.3;
+		i += 0.5;
 	}
 	
 }

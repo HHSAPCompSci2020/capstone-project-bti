@@ -2,8 +2,6 @@ package game;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.event.*;
-import java.util.ArrayList;
-import processing.core.PApplet;
 
 /**
  * Displays the game 
@@ -29,6 +27,8 @@ public class GameScreen extends Screen {
 	/**
 	 * Instantiates all of GameScreen's fields 
 	 * @param surface PApplet onto which the game will be drawn 
+	 * @param level Version of the game (original, invisible, or speeding)
+	 * @param w Main class
 	 */
 	public GameScreen(DrawingSurface surface, int level, Main w) {
 		super(800,600);
@@ -60,7 +60,6 @@ public class GameScreen extends Screen {
 	 * Sets up the game in the beginning 
 	 */
 	public void setup() {
-		//perhaps unnecessary
 	}
 
 	/**
@@ -87,7 +86,7 @@ public class GameScreen extends Screen {
 			} else {
 				surface.screens.set(4, new DeadScreen(surface, points.points, level, w));
 			}
-			surface.switchScreen(ScreenSwitcher.SCREEN5);
+			surface.switchScreen(ScreenSwitcher.SCREEN3);
 		}
 
 		surface.fill(204, 255, 255);

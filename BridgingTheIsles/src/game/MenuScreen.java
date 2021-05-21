@@ -3,7 +3,7 @@ import java.awt.Point;
 import java.awt.Rectangle;
 
 /**
- * Displays the game 
+ * Displays the menu in the game
  * @author Riya Gupta
  * @author Samantha Sung
  * @author Kasturi Sinha
@@ -18,15 +18,16 @@ public class MenuScreen extends Screen {
 	/**
 	 * Instantiates all of MenuScreen's fields, including the buttons 
 	 * @param surface PApplet onto which the menu will be drawn 
+	 * @param w Main class
 	 */
 	public MenuScreen(DrawingSurface surface, Main w) {
 		super(800,600);
 		this.w = w;
 		this.surface = surface;
-		button1 = new Rectangle(800/2-100,600/2-45,200,70);
-		button2 = new Rectangle(800/2-100,600/2+40,200,70);
-		button3 = new Rectangle(800/2-100,600/2+125,200,70);
-		button4 = new Rectangle(800/2-100,600/2+210, 200, 70);
+		button1 = new Rectangle(300,255,200,70);
+		button2 = new Rectangle(300,340,200,70);
+		button3 = new Rectangle(300,425,200,70);
+		button4 = new Rectangle(300,510,200,70);
 	}
 
 	/**

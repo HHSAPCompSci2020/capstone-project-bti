@@ -11,7 +11,7 @@ public class LifeCounter {
 	protected int lifeCount;
 	
 	/**
-	 * Initalize life count to 2 lives
+	 * Initalizes life count to 2 lives
 	 */
 	public LifeCounter() {
 		lifeCount = 2;

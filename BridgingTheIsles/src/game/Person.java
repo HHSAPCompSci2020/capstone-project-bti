@@ -2,7 +2,7 @@ package game;
 import processing.core.PApplet;
 
 /** 
- * Represents Person as he/she walks across OriginalBridge and Isle
+ * Represents Person as they walks across the bridge and Isle
  * 
  * @author Samantha Sung
  * @author Kasturi Sinha
@@ -24,6 +24,7 @@ public class Person {
 	 * Initializes the coordinates of the Person and other attributes
 	 * @param x the x-coordinate to which the Person should be instantiated 
 	 * @param y the y-coordinate to which the Person should be instantiated 
+	 * @param lives lives person has left
 	 */
 	public Person(int x, int y, LifeCounter lives) {
 		this.lives = lives;
@@ -86,6 +87,7 @@ public class Person {
 	
 	/**
 	 * Determines if the person is walking, dying (reviving), or shifting. 
+	 * @return If the person has no lives left
 	 */
 	public boolean act() {
 		if (walking) {

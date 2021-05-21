@@ -15,19 +15,18 @@ import processing.core.PApplet;
 public class DrawingSurface extends PApplet implements ScreenSwitcher{
 	
 	/**
-	 * Ratio of the width and height of the screen to the active screen 
+	 * Ratio of the width and height of the screen compared to the active screen 
 	 */
 	public float ratioX, ratioY;
-	private Main w; 
 	private ArrayList<Integer> keys;
 	private Screen activeScreen;
 	protected ArrayList<Screen> screens;
 	
 	/**
 	 * Instantiates all the objects of the game
+	 * @param w Main class
 	 */
 	public DrawingSurface(Main w) {
-		this.w = w;
 		screens = new ArrayList<Screen>();	
 		keys = new ArrayList<Integer>();
 		
@@ -51,7 +50,6 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher{
 	 * Sets up the game in the beginning 
 	 */
 	public void setup() {
-		//perhaps unnecessary
 	}
 	
 	/**
@@ -76,9 +74,8 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher{
 	}
 
 	/**
-	 * When keys contain the specified key, 
-	 * it will be removed and the keyReleased for the activeScreen 
-	 * will be called
+	 * When keys contain the specified key, it will be removed 
+	 * and the keyReleased for the activeScreen will be called
 	 */
 	public void keyReleased() {
 		while(keys.contains(keyCode))
@@ -87,7 +84,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher{
 	}
 
 	/**
-	 * 
+	 * Detects if a key is pressed
 	 * @param code the key that is supposedly pressed
 	 * @return if the specified key is pressed
 	 */
@@ -111,8 +108,10 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher{
 		return new Point((int)(actual.getX() / ratioX) , (int)(actual.getY() / ratioY));
 	}
 
-	
-	@Override
+	/**
+	 * Switches the screen according to the parameter
+	 * @param i the number that represents the screen
+	 */
 	public void switchScreen(int i) {
 		activeScreen = screens.get(i);
 	}

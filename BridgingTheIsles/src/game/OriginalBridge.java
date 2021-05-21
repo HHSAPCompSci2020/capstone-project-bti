@@ -2,7 +2,7 @@ package game;
 import processing.core.PApplet;
 
 /** 
- * Represents a straight, flat bridge. Vertically built by player when the space button is pressed and 
+ * Represents a straight bridge. It is vertically built by player when the space button is pressed and 
  * horizontally falls to connect the Person to the adjacent Isle
  * 
  * @author Samantha Sung
@@ -33,7 +33,7 @@ public class OriginalBridge{
 	}
 	
 	/**
-	 * Draws the bridge e
+	 * Draws the bridge 
 	 * @param surface PApplet onto which the bridge will be drawn
 	 */
 	public void draw(PApplet surface) {
@@ -59,7 +59,7 @@ public class OriginalBridge{
 	}
 	
 	/**
-	 * Displays the bridge falling
+	 * Sets the bridge to falling
 	 * @param path path of the person so the bridge falls with it
 	 */
 	public void fall(double path) {

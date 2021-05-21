@@ -6,7 +6,7 @@ import java.awt.Rectangle;
 /**
  * Displays the buttons and points after all lives are lost
  * @author Kasturi Sinha
- * @version 5/14
+ * @version 5/21
  *
  */
 public class DeadScreen extends Screen {
@@ -20,6 +20,9 @@ public class DeadScreen extends Screen {
 	/** 
 	 * Instantiates all of DeadScreen's fields, including the buttons
 	 * @param surface PApplet onto which the menu will be drawn 
+	 * @param points Points player received
+	 * @param level Version of the game (original, invisible, or speeding)
+	 * @param w Main Class
 	 */
 	public DeadScreen(DrawingSurface surface, int points, int level, Main w) {
 		super(800,600);
