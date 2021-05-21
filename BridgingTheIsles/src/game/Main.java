@@ -8,12 +8,16 @@ import java.awt.*;
  * Contains the main method, creates DrawingSurface
  * 
  * @author Riya Gupta
- * @version 5/10
+ * @author Kasturi Sinha
+ * @version 5/18
 */
 public class Main extends JFrame{
 	
 	private static JFrame window; 
 	
+	/**
+	 * Creates and displays the window 
+	 */
 	public Main() {
 		DrawingSurface drawing = new DrawingSurface(this);
 		PApplet.runSketch(new String[]{""}, drawing);
@@ -37,6 +41,9 @@ public class Main extends JFrame{
 		Main w = new Main(); 
 	}
 	
+	/**
+	 * Closes the window 
+	 */
 	public void exit() {
 		window.dispose();
 	}

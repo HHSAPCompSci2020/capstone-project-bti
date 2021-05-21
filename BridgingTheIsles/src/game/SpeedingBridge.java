@@ -25,8 +25,8 @@ public class SpeedingBridge extends OriginalBridge {
 	 * @param n initial increment for the bridge length 
 	 */
 	public void build(int n) {
-		length+=n+i;
-		i+=0.3;
+		length += n + i;
+		i += 0.3;
 	}
 	
 }

@@ -39,12 +39,12 @@ public class GameScreen extends Screen {
 
 		isle1 = new Isle(4, 60);
 		if(level == 1)
-			bridge = new OriginalBridge(isle1.startX+isle1.width);
+			bridge = new OriginalBridge(isle1.startX + isle1.width);
 		else if(level == 2)
-			bridge = new InvisibleBridge(isle1.startX+isle1.width);
+			bridge = new InvisibleBridge(isle1.startX + isle1.width);
 		else if(level == 3)
-			bridge = new SpeedingBridge(isle1.startX+isle1.width);
-		isle2 = new Isle(3, isle1.startX+isle1.width);
+			bridge = new SpeedingBridge(isle1.startX + isle1.width);
+		isle2 = new Isle(3, isle1.startX +isle1.width);
 		tempIsle = isle1;
 		points = new PointSystem();
 		lives = new LifeCounter();
@@ -66,7 +66,6 @@ public class GameScreen extends Screen {
 	 * Draws all of the objects onto the DrawingSurface
 	 */
 	public void draw() {
-
 		surface.background(102, 255, 255);
 		surface.fill(0, 0, 255); //water
 		surface.rect(0, 500, 800, 500);
@@ -117,7 +116,7 @@ public class GameScreen extends Screen {
 		surface.textSize(20);
 		String str2 = "Back to Menu";
 		float w1 = surface.textWidth(str2);
-		surface.text(str2, backToMenu.x + backToMenu.width / 2 - w1 / 2, backToMenu.y + backToMenu.height/2 + 5);
+		surface.text(str2, backToMenu.x + backToMenu.width / 2 - w1 / 2, backToMenu.y + backToMenu.height / 2 + 5);
 	}
 
 	/**
@@ -129,22 +128,22 @@ public class GameScreen extends Screen {
 			int previous = points.points;
 			points.incrementPoints(p);
 			int n = points.points/20;
-			if (previous < 20*n && points.points >= 20*n) 
+			if (previous < 20 * n && points.points >= 20 * n) 
 				lives.addLife();
 
 			person.walk(bridge.getEndCoordinate());
-			bridge.fall(bridge.getEndCoordinate()-person.x);
+			bridge.fall(bridge.getEndCoordinate() - person.x);
 
 			if (p > 0) {
-				person.shift(bridge.getEndCoordinate()-isle2.startX);
+				person.shift(bridge.getEndCoordinate() - isle2.startX);
 				tempIsle = isle1;
 				tempIsle.dir = 0;
-				tempIsle.shift(bridge.getEndCoordinate()-person.x);
+				tempIsle.shift(bridge.getEndCoordinate() - person.x);
 				isle1 = isle2;
 				isle1.dir = 1;
-				isle1.shift(bridge.getEndCoordinate()-person.x);
+				isle1.shift(bridge.getEndCoordinate() - person.x);
 				isle2 = new Isle(2, 60+isle1.width);
-				isle2.shift(bridge.getEndCoordinate()-person.x);
+				isle2.shift(bridge.getEndCoordinate() - person.x);
 			}	
 			if (p == 0) {
 				bridge.fallDown();
@@ -160,6 +159,9 @@ public class GameScreen extends Screen {
 		space = false;
 	}
 
+	/**
+	 * Acts according to which button is pressed
+	 */
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (restart.contains(p)) {

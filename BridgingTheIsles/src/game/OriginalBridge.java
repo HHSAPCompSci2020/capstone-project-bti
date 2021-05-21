@@ -39,7 +39,7 @@ public class OriginalBridge{
 	public void draw(PApplet surface) {
 		surface.stroke(102, 51, 0);
 		surface.strokeWeight(2);
-		surface.line((float)startX, 400, (float)(startX+Math.cos(angle)*length), (float)(400-Math.sin(angle)*length));
+		surface.line((float)startX, 400, (float)(startX + Math.cos(angle) * length), (float)(400  -Math.sin(angle) * length));
 	}
 	
 	/**

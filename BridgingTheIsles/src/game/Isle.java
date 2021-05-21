@@ -48,9 +48,9 @@ public class Isle{
 	 * @return the number of points player should recieve
 	 */
 	public int detectBridge(double x) {
-		if (x >= middle  -width / 6 && x <= middle + width/6) 
+		if (x >= middle - width / 6 && x <= middle + width / 6) 
 			return 3;
-		else if (x >= middle-width / 3 && x <= middle + width/3) 
+		else if (x >= middle - width / 3 && x <= middle + width / 3) 
 			return 2;
 		else if (x >= startX && x <= startX + width) 
 			return 1;
@@ -100,7 +100,7 @@ public class Isle{
 					shifting = false;
 				else if (dir == 0 && startX <= -800)
 					shifting = false;
-				else if (dir == 2 && startX <= goalX+10) {
+				else if (dir == 2 && startX <= goalX + 10) {
 					shifting = false;
 				}
 			}	

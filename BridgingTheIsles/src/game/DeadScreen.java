@@ -27,9 +27,10 @@ public class DeadScreen extends Screen {
 		this.points = points; 
 		this.surface = surface;
 		this.level = level;
-		restartGame = new Rectangle(800/2-100,600/2-80,200,100);
-		backToMenu = new Rectangle(800/2-100,600/2+30,200,100);
-		exit = new Rectangle(800/2-100,600/2+140,200,100);
+		
+		restartGame = new Rectangle(800 / 2 - 150, 600 / 2 - 80 + 20, 300, 100);
+		backToMenu = new Rectangle(800 / 2 - 150, 600 / 2 + 30 + 20, 300, 100);
+		exit = new Rectangle(800 / 2 - 150, 600 / 2 + 140 + 20, 300, 100);
 	}
 
 	/**
@@ -45,6 +46,7 @@ public class DeadScreen extends Screen {
 		surface.rect(exit.x, exit.y, exit.width, exit.height, 10, 10, 10, 10);
 		
 		surface.fill(0);
+		surface.textSize(30);
 		String str = "Restart Game";
 		float w = surface.textWidth(str);
 		String str2 = "Back to Menu";
@@ -52,14 +54,21 @@ public class DeadScreen extends Screen {
 		String str3 = "Exit Game";
 		float w3 = surface.textWidth(str3);
 		
-		surface.textSize(15);
 		surface.textLeading(11);
-		surface.text(str, restartGame.x+restartGame.width/2-w/2, restartGame.y+restartGame.height/2);
-		surface.text(str2, backToMenu.x+backToMenu.width/2-w2/2, backToMenu.y+backToMenu.height/2);
-		surface.text(str3, exit.x+exit.width/2-w3/2, exit.y+exit.height/2);
+		surface.text(str, restartGame.x  + restartGame.width / 2 - w / 2, restartGame.y + restartGame.height / 2);
+		surface.text(str2, backToMenu.x + backToMenu.width / 2 - w2 / 2, backToMenu.y + backToMenu.height / 2);
+		surface.text(str3, exit.x + exit.width / 2 - w3 / 2, exit.y + exit.height / 2);
 		
+
+		surface.textSize(110);
+		String gameOver = "GAME OVER";
+		float w4 = surface.textWidth(gameOver);
+		surface.text(gameOver, 400 - w4 / 2, 100);
+		
+		surface.textSize(80);
 		String pointsEarned = "Points Earned: " + points;
-		surface.text(pointsEarned, 10, 20, 800, 600);		
+		float w5 = surface.textWidth(pointsEarned);
+		surface.text(pointsEarned, 400 - w5 / 2, 200);		
 		surface.popStyle();
 	}
 	
@@ -69,13 +78,12 @@ public class DeadScreen extends Screen {
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (restartGame.contains(p)) {
-			surface.screens.set(level, new GameScreen(surface, level, w)); //edit this when it works out 
+			surface.screens.set(level, new GameScreen(surface, level, w)); 
 			surface.switchScreen(level);
 		}	else if (backToMenu.contains(p)) {
 			surface.switchScreen(ScreenSwitcher.SCREEN1);
 		}	else if (exit.contains(p)) {
 			w.exit();
-			//surface.switchScreen(ScreenSwitcher.SCREEN3);
 		}
 	}
 

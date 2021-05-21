@@ -45,11 +45,11 @@ public class Person {
 		surface.fill(204, 51, 255);
 		surface.stroke(0, 0, 0);
 		surface.strokeWeight(1);
-		surface.circle((float)x-10, (float)y-55, 20);
-		surface.line((float)x-10, (float)y-45, (float)x-10, (float)y-15); 
-		surface.line((float)x-20, (float)y-30, (float)x, (float)y-30); 
-		surface.line((float)x-10, (float)y-15, (float)x-20, (float)y); 
-		surface.line((float)x-10, (float)y-15,(float)x, (float)y); 
+		surface.circle((float)x - 10, (float)y - 55, 20);
+		surface.line((float)x - 10, (float)y - 45, (float)x - 10, (float)y - 15); 
+		surface.line((float)x - 20, (float)y - 30, (float)x, (float)y - 30); 
+		surface.line((float)x - 10, (float)y - 15, (float)x - 20, (float)y); 
+		surface.line((float)x - 10, (float)y - 15,(float)x, (float)y); 
 	}
 	
 	/**

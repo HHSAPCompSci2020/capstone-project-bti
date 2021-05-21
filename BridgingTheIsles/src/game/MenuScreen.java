@@ -47,11 +47,10 @@ public class MenuScreen extends Screen {
 		
 		surface.textSize(15);
 		surface.textLeading(11);
-		surface.text(str, button1.x+button1.width/2-(float)115.48828/4, button1.y+button1.height/2);
-		surface.text(str2, button2.x+button2.width/2-(float)221.68945/4, button2.y+button2.height/2);
-		surface.text(str3, button3.x+button3.width/2-(float)235.3418/4, button3.y+button3.height/2);
+		surface.text(str, button1.x + button1.width / 2 - (float)115.48828 / 4, button1.y + button1.height / 2);
+		surface.text(str2, button2.x + button2.width / 2  -(float)221.68945 / 4, button2.y + button2.height / 2);
+		surface.text(str3, button3.x + button3.width / 2- (float)235.3418 / 4, button3.y + button3.height / 2);
 		
-		//Print instructions
 		String instructions = "Instructions:\r\n"
 				+ "				 \n1. You are on a deserted isle\r\n"
 				+ "				 \n2. Press on the space button for a bridge to build in the vertical direction.\r\n"
