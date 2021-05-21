@@ -12,7 +12,7 @@ import java.awt.Rectangle;
 public class MenuScreen extends Screen {
 
 	private DrawingSurface surface;
-	private Rectangle button1, button2, button3;
+	private Rectangle button1, button2, button3, button4;
 	private Main w;
 	
 	/**
@@ -23,9 +23,10 @@ public class MenuScreen extends Screen {
 		super(800,600);
 		this.w = w;
 		this.surface = surface;
-		button1 = new Rectangle(800/2-100,600/2-45,200,100);
-		button2 = new Rectangle(800/2-100,600/2+65,200,100);
-		button3 = new Rectangle(800/2-100,600/2+175,200,100);
+		button1 = new Rectangle(800/2-100,600/2-45,200,70);
+		button2 = new Rectangle(800/2-100,600/2+40,200,70);
+		button3 = new Rectangle(800/2-100,600/2+125,200,70);
+		button4 = new Rectangle(800/2-100,600/2+210, 200, 70);
 	}
 
 	/**
@@ -39,6 +40,7 @@ public class MenuScreen extends Screen {
 		surface.rect(button1.x, button1.y, button1.width, button1.height, 10, 10, 10, 10);
 		surface.rect(button2.x, button2.y, button2.width, button2.height, 10, 10, 10, 10);
 		surface.rect(button3.x, button3.y, button3.width, button3.height, 10, 10, 10, 10);
+		surface.rect(button4.x, button4.y, button4.width, button4.height, 10, 10, 10, 10);
 		
 		surface.textSize(20);
 		surface.fill(0);
@@ -48,12 +50,14 @@ public class MenuScreen extends Screen {
 		float w2 = surface.textWidth(str2);
 		String str3 = "Speeding Bridge";
 		float w3 = surface.textWidth(str3);
-
+		String str4 = "Exit Game";
+		float w4 = surface.textWidth(str4);
 		
 		surface.textLeading(11);
 		surface.text(str, button1.x + button1.width / 2 - w / 2, button1.y + button1.height / 2);
 		surface.text(str2, button2.x + button2.width / 2  - w2 / 2, button2.y + button2.height / 2);
 		surface.text(str3, button3.x + button3.width / 2 - w3 / 2, button3.y + button3.height / 2);
+		surface.text(str4, button4.x + button4.width / 2 - w4 / 2, button4.y + button4.height / 2);
 		
 		surface.textSize(15);
 		surface.textLeading(11);
@@ -69,8 +73,10 @@ public class MenuScreen extends Screen {
 		surface.text(instructions, 10, 55, 800, 600);
 		
 		surface.fill(204, 51, 255);
-		surface.textSize(30);
-		surface.text("Bridging The Isles", 10, 35);
+		surface.textSize(45);
+		String title = "BRIDGING THE ISLES";
+		float w1 = surface.textWidth(title);
+		surface.text(title, 400 - w1 / 2, 50);
 		
 		surface.popStyle();
 	}
@@ -89,6 +95,8 @@ public class MenuScreen extends Screen {
 		}	else if (button3.contains(p)) {
 			surface.screens.set(1, new GameScreen(surface, 3, w));
 			surface.switchScreen(ScreenSwitcher.SCREEN2);
+		}   else if (button4.contains(p)) {
+			w.exit();
 		}
 			
 	}

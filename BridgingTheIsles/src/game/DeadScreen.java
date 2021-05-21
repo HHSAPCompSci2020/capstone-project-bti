@@ -38,9 +38,9 @@ public class DeadScreen extends Screen {
 	 */
 	public void draw() {
 		surface.pushStyle();	
-		surface.background(255,255,255);
+		surface.background(204, 255, 255);
 		
-		surface.fill(255);
+		surface.fill(102, 255, 255);
 		surface.rect(restartGame.x, restartGame.y, restartGame.width, restartGame.height, 10, 10, 10, 10);
 		surface.rect(backToMenu.x, backToMenu.y, backToMenu.width, backToMenu.height, 10, 10, 10, 10);
 		surface.rect(exit.x, exit.y, exit.width, exit.height, 10, 10, 10, 10);
@@ -61,6 +61,7 @@ public class DeadScreen extends Screen {
 		
 
 		surface.textSize(110);
+		surface.fill(204, 51, 255);
 		String gameOver = "GAME OVER";
 		float w4 = surface.textWidth(gameOver);
 		surface.text(gameOver, 400 - w4 / 2, 100);

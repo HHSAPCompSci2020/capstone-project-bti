@@ -20,7 +20,7 @@ public class GameScreen extends Screen {
 	private Isle tempIsle;
 	private PointSystem points;
 	private LifeCounter lives; 
-	private Rectangle restart, backToMenu; 
+	private Rectangle restart, backToMenu, exit; 
 	private int level;
 	private boolean space;
 	private Main w;
@@ -53,6 +53,7 @@ public class GameScreen extends Screen {
 
 		restart = new Rectangle(580, 150, 180, 40);
 		backToMenu = new Rectangle(580, 200, 180, 40); 
+		exit = new Rectangle(580, 250, 180, 40);
 	}
 
 	/**
@@ -117,6 +118,14 @@ public class GameScreen extends Screen {
 		String str2 = "Back to Menu";
 		float w1 = surface.textWidth(str2);
 		surface.text(str2, backToMenu.x + backToMenu.width / 2 - w1 / 2, backToMenu.y + backToMenu.height / 2 + 5);
+		
+		surface.fill(204, 255, 255);
+		surface.rect(exit.x, exit.y, exit.width, exit.height, 10, 10, 10, 10);
+		surface.fill(50);
+		surface.textSize(20);
+		String str3 = "Exit";
+		float w2 = surface.textWidth(str3);
+		surface.text(str3, exit.x + exit.width / 2 - w2 / 2, exit.y + exit.height / 2 + 5);
 	}
 
 	/**
@@ -169,6 +178,8 @@ public class GameScreen extends Screen {
 			surface.switchScreen(ScreenSwitcher.SCREEN2);
 		} else if (backToMenu.contains(p)) {
 			surface.switchScreen(ScreenSwitcher.SCREEN1);
+		} else if (exit.contains(p)) {
+			w.exit();
 		}
 	}
 
