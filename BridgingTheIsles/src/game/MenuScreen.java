@@ -48,6 +48,7 @@ public class MenuScreen extends Screen {
 		float w2 = surface.textWidth(str2);
 		String str3 = "Speeding Bridge";
 		float w3 = surface.textWidth(str3);
+
 		
 		surface.textLeading(11);
 		surface.text(str, button1.x + button1.width / 2 - w / 2, button1.y + button1.height / 2);
