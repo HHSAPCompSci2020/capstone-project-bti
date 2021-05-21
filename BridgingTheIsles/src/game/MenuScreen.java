@@ -54,9 +54,6 @@ public class MenuScreen extends Screen {
 		surface.text(str, button1.x + button1.width / 2 - w / 2, button1.y + button1.height / 2);
 		surface.text(str2, button2.x + button2.width / 2  - w2 / 2, button2.y + button2.height / 2);
 		surface.text(str3, button3.x + button3.width / 2 - w3 / 2, button3.y + button3.height / 2);
-//		surface.text(str, button1.x + button1.width / 2 - (float)115.48828 / 4, button1.y + button1.height / 2);
-//		surface.text(str2, button2.x + button2.width / 2  -(float)221.68945 / 4, button2.y + button2.height / 2);
-//		surface.text(str3, button3.x + button3.width / 2- (float)235.3418 / 4, button3.y + button3.height / 2);
 		
 		surface.textSize(15);
 		surface.textLeading(11);
