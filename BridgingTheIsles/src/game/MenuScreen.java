@@ -40,17 +40,25 @@ public class MenuScreen extends Screen {
 		surface.rect(button2.x, button2.y, button2.width, button2.height, 10, 10, 10, 10);
 		surface.rect(button3.x, button3.y, button3.width, button3.height, 10, 10, 10, 10);
 		
+		surface.textSize(20);
 		surface.fill(0);
 		String str = "Original";
+		float w = surface.textWidth(str);
 		String str2 = "Invisible Bridge";
+		float w2 = surface.textWidth(str2);
 		String str3 = "Speeding Bridge";
+		float w3 = surface.textWidth(str3);
+		
+		surface.textLeading(11);
+		surface.text(str, button1.x + button1.width / 2 - w / 2, button1.y + button1.height / 2);
+		surface.text(str2, button2.x + button2.width / 2  - w2 / 2, button2.y + button2.height / 2);
+		surface.text(str3, button3.x + button3.width / 2 - w3 / 2, button3.y + button3.height / 2);
+//		surface.text(str, button1.x + button1.width / 2 - (float)115.48828 / 4, button1.y + button1.height / 2);
+//		surface.text(str2, button2.x + button2.width / 2  -(float)221.68945 / 4, button2.y + button2.height / 2);
+//		surface.text(str3, button3.x + button3.width / 2- (float)235.3418 / 4, button3.y + button3.height / 2);
 		
 		surface.textSize(15);
 		surface.textLeading(11);
-		surface.text(str, button1.x + button1.width / 2 - (float)115.48828 / 4, button1.y + button1.height / 2);
-		surface.text(str2, button2.x + button2.width / 2  -(float)221.68945 / 4, button2.y + button2.height / 2);
-		surface.text(str3, button3.x + button3.width / 2- (float)235.3418 / 4, button3.y + button3.height / 2);
-		
 		String instructions = "Instructions:\r\n"
 				+ "				 \n1. You are on a deserted isle\r\n"
 				+ "				 \n2. Press on the space button for a bridge to build in the vertical direction.\r\n"
