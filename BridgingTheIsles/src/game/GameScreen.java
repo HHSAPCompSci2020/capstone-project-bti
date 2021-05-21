@@ -12,7 +12,7 @@ import processing.core.PApplet;
  * @version 5/14
  */
 public class GameScreen extends Screen {
-		
+
 	private DrawingSurface surface;
 	private Person person;
 	private OriginalBridge bridge;
@@ -25,7 +25,7 @@ public class GameScreen extends Screen {
 	private boolean space;
 	private Main w;
 
-	
+
 	/**
 	 * Instantiates all of GameScreen's fields 
 	 * @param surface PApplet onto which the game will be drawn 
@@ -36,7 +36,7 @@ public class GameScreen extends Screen {
 		this.surface = surface;
 		this.level = level;
 		space = false;
-		
+
 		isle1 = new Isle(4, 60);
 		if(level == 1)
 			bridge = new OriginalBridge(isle1.startX+isle1.width);
@@ -48,20 +48,20 @@ public class GameScreen extends Screen {
 		tempIsle = isle1;
 		points = new PointSystem();
 		lives = new LifeCounter();
-		
+
 		person = new Person(80, 400, lives);
-		
+
 		restart = new Rectangle(580, 150, 180, 40);
 		backToMenu = new Rectangle(580, 200, 180, 40); 
 	}
-	
+
 	/**
 	 * Sets up the game in the beginning 
 	 */
 	public void setup() {
 		//perhaps unnecessary
 	}
-	
+
 	/**
 	 * Draws all of the objects onto the DrawingSurface
 	 */
@@ -70,18 +70,25 @@ public class GameScreen extends Screen {
 		surface.background(102, 255, 255);
 		surface.fill(0, 0, 255); //water
 		surface.rect(0, 500, 800, 500);
-		
+
 		isle1.draw(surface);
 		isle2.draw(surface);
 		tempIsle.draw(surface);
 		bridge.draw(surface);
 		person.draw(surface);
-		
+
 		bridge.act();
 		isle1.act();
 		isle2.act();
 		tempIsle.act();
-		person.act();
+		if(person.act()) {
+			if (surface.screens.size() == 4) {
+				surface.screens.add(new DeadScreen(surface, points.points, level, w));
+			} else {
+				surface.screens.set(4, new DeadScreen(surface, points.points, level, w));
+			}
+			surface.switchScreen(ScreenSwitcher.SCREEN5);
+		}
 
 		surface.fill(204, 255, 255);
 		surface.rect(580, 30, 180, 90);
@@ -95,7 +102,7 @@ public class GameScreen extends Screen {
 			bridge.build(5);
 			space = true;
 		}
-		
+
 		surface.fill(204, 255, 255);
 		surface.rect(restart.x, restart.y, restart.width, restart.height, 10, 10, 10, 10);
 		surface.fill(50);
@@ -103,7 +110,7 @@ public class GameScreen extends Screen {
 		String str = "Restart";
 		float w = surface.textWidth(str);
 		surface.text(str, restart.x + restart.width / 2 - w / 2, restart.y + restart.height / 2 + 5);
-		
+
 		surface.fill(204, 255, 255);
 		surface.rect(backToMenu.x, backToMenu.y, backToMenu.width, backToMenu.height, 10, 10, 10, 10);
 		surface.fill(50);
@@ -124,10 +131,10 @@ public class GameScreen extends Screen {
 			int n = points.points/20;
 			if (previous < 20*n && points.points >= 20*n) 
 				lives.addLife();
-			
+
 			person.walk(bridge.getEndCoordinate());
 			bridge.fall(bridge.getEndCoordinate()-person.x);
-				
+
 			if (p > 0) {
 				person.shift(bridge.getEndCoordinate()-isle2.startX);
 				tempIsle = isle1;
@@ -143,24 +150,16 @@ public class GameScreen extends Screen {
 				bridge.fallDown();
 				person.loseLife();
 				lives.removeLife();
-				System.out.println(person.act());
-				
+
 				if(lives.lifeCount > 0) {
 					bridge.revive();
 					person.revive();
-				} else if (lives.lifeCount == 0 && person.act() == true){
-					if (surface.screens.size() == 4) {
-						surface.screens.add(new DeadScreen(surface, points.points, level, w));
-					} else {
-						surface.screens.set(4, new DeadScreen(surface, points.points, level, w));
-					}
-					surface.switchScreen(ScreenSwitcher.SCREEN5);
 				}
 			}
 		}
 		space = false;
 	}
-	
+
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (restart.contains(p)) {
@@ -170,6 +169,6 @@ public class GameScreen extends Screen {
 			surface.switchScreen(ScreenSwitcher.SCREEN1);
 		}
 	}
-	
+
 }
-	
+
